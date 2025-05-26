@@ -1,0 +1,144 @@
+{
+  "categories": [
+    {
+      "id": "electronics",
+      "name": "Electronics",
+      "description": "Electronic devices and accessories",
+      "image_url": "electronics.jpg",
+      "products": [
+        {
+          "id": "e001",
+          "name": "Smartphone X",
+          "description": "Latest smartphone with advanced features",
+          "price": 899.99,
+          "stock": 50,
+          "image_url": "smartphone_x.jpg",
+          "specifications": {
+            "display": "6.5 inch OLED",
+            "processor": "Octa-core 2.5GHz",
+            "storage": "256GB",
+            "camera": "48MP+12MP dual rear",
+            "battery": "4500mAh"
+          },
+          "ratings": {
+            "average": 4.7,
+            "count": 128
+          },
+          "tags": ["smartphone", "mobile", "tech", "featured"]
+        },
+        {
+          "id": "e002",
+          "name": "Wireless Headphones",
+          "description": "Noise cancelling wireless headphones",
+          "price": 199.99,
+          "stock": 75,
+          "image_url": "headphones.jpg",
+          "specifications": {
+            "type": "Over-ear",
+            "connectivity": "Bluetooth 5.0",
+            "battery": "30 hours",
+            "features": ["Noise cancellation", "Built-in mic"]
+          },
+          "ratings": {
+            "average": 4.5,
+            "count": 96
+          },
+          "tags": ["audio", "wireless", "headphones"]
+        }
+      ]
+    },
+    {
+      "id": "clothing",
+      "name": "Clothing",
+      "description": "Apparel and fashion items",
+      "image_url": "clothing.jpg",
+      "products": [
+        {
+          "id": "c001",
+          "name": "Men's Cotton T-Shirt",
+          "description": "Comfortable cotton t-shirt for everyday wear",
+          "price": 24.99,
+          "stock": 100,
+          "image_url": "tshirt.jpg",
+          "specifications": {
+            "material": "100% Cotton",
+            "sizes": ["S", "M", "L", "XL"],
+            "colors": ["Black", "White", "Blue", "Gray"]
+          },
+          "ratings": {
+            "average": 4.3,
+            "count": 85
+          },
+          "tags": ["men", "casual", "top"]
+        },
+        {
+          "id": "c002",
+          "name": "Women's Denim Jeans",
+          "description": "Classic fit denim jeans",
+          "price": 49.99,
+          "stock": 80,
+          "image_url": "jeans.jpg",
+          "specifications": {
+            "material": "Denim",
+            "fit": "Regular",
+            "sizes": ["26", "28", "30", "32", "34"],
+            "colors": ["Blue", "Black"]
+          },
+          "ratings": {
+            "average": 4.6,
+            "count": 112
+          },
+          "tags": ["women", "casual", "bottom"]
+        }
+      ]
+    },
+    {
+      "id": "home",
+      "name": "Home & Kitchen",
+      "description": "Home décor and kitchen appliances",
+      "image_url": "home.jpg",
+      "products": [
+        {
+          "id": "h001",
+          "name": "Smart Coffee Maker",
+          "description": "Programmable coffee maker with smartphone control",
+          "price": 129.99,
+          "stock": 30,
+          "image_url": "coffee_maker.jpg",
+          "specifications": {
+            "capacity": "12 cups",
+            "connectivity": "Wi-Fi, Bluetooth",
+            "features": ["Programmable", "Auto-shutoff", "Voice control"]
+          },
+          "ratings": {
+            "average": 4.4,
+            "count": 72
+          },
+          "tags": ["kitchen", "appliance", "smart home"]
+        },
+        {
+          "id": "h002",
+          "name": "Decorative Throw Pillows",
+          "description": "Set of 2 decorative throw pillows",
+          "price": 34.99,
+          "stock": 120,
+          "image_url": "pillows.jpg",
+          "specifications": {
+            "material": "Cotton blend",
+            "size": "18 x 18 inches",
+            "colors": ["Beige", "Gray", "Blue", "Pink"]
+          },
+          "ratings": {
+            "average": 4.2,
+            "count": 65
+          },
+          "tags": ["home decor", "living room", "bedroom"]
+        }
+      ]
+    }
+  ],
+  "featured_products": ["e001", "h001"],
+  "new_arrivals": ["c002", "h002"],
+  "best_sellers": ["e002", "c001"],
+  "on_sale": []
+}
