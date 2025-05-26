@@ -193,25 +193,33 @@ class Menu:
                 print(self.term.move_y(2) + self.term.center(self.term.bold(self.title)))
                 print()
                 
+                # Display menu options with proper spacing
                 for i, option in enumerate(self.options):
                     if i == self.current_option:
-                        # Orange background with black text
+                        # Orange background with black text for selected option
                         print(self.term.center(self.term.black_on_orange(f" {option} ")))
                     else:
                         print(self.term.center(f" {option} "))
                 
                 print()
-                print(self.term.center("(Use arrow keys to navigate, Enter to select, q to quit)"))
+                print(self.term.center("(Use ↑/↓ arrow keys to navigate, Enter to select, q to quit)"))
                 
-                key = self.term.inkey()
-                if key.name == 'KEY_UP':
+                # Handle keyboard input with improved key detection
+                key = self.term.inkey(timeout=0.5)
+                
+                # Handle various key formats for better compatibility
+                if key.name == 'KEY_UP' or key.code == 259 or key == 'k':
                     self.current_option = (self.current_option - 1) % len(self.options)
-                elif key.name == 'KEY_DOWN':
+                elif key.name == 'KEY_DOWN' or key.code == 258 or key == 'j':
                     self.current_option = (self.current_option + 1) % len(self.options)
-                elif key.name == 'KEY_ENTER':
+                elif key.name == 'KEY_ENTER' or key == '\n' or key == '\r':
                     return self.current_option
                 elif key.lower() == 'q':
                     return None
+                
+                # Small delay to prevent cpu usage spikes
+                import time
+                time.sleep(0.05)
 
 class CLIController:
     def __init__(self):
@@ -350,56 +358,469 @@ class CLIController:
         self.show_admin_help()
         
         while True:
-            admin_menu = Menu(f"Admin Menu - {self.current_user.username}", 
-                            ["Add Product", "Delete Product", "List Products by Category", 
-                             "Update Product", "Help", "Logout"])
+            # Main admin menu with categorized options
+            admin_menu = Menu(f"Admin Menu - {self.current_user.username}", [
+                "📦 Product Management",
+                "📊 Reports & Statistics",
+                "🔧 Settings",
+                "❓ Help",
+                "🚪 Logout"
+            ])
             choice = admin_menu.display()
             
-            if choice is None or choice == 5:  # Logout option or 'q' pressed
+            if choice is None or choice == 4:  # Logout option or 'q' pressed
                 self.current_user = None
                 break
-            elif choice == 0:
-                self.add_product()
-            elif choice == 1:
-                self.delete_product()
-            elif choice == 2:
-                self.list_products_by_category()
-            elif choice == 3:
-                self.update_product()
-            elif choice == 4:
+            elif choice == 0:  # Product Management
+                self.product_management_menu()
+            elif choice == 1:  # Reports & Statistics
+                self.show_reports_menu()
+            elif choice == 2:  # Settings
+                self.settings_menu()
+            elif choice == 3:  # Help
                 self.show_admin_help()
     
-    def show_admin_help(self):
+    def product_management_menu(self):
+        """Submenu for product management options"""
+        while True:
+            product_menu = Menu("Product Management", [
+                "➕ Add New Product",
+                "✏️ Update Product",
+                "❌ Delete Product",
+                "📋 List Products by Category",
+                "🔍 Search Products",
+                "🏷️ Manage Featured Products",
+                "⬅️ Back to Admin Menu"
+            ])
+            choice = product_menu.display()
+            
+            if choice is None or choice == 6:  # Back option or 'q' pressed
+                return
+            elif choice == 0:  # Add New Product
+                self.add_product()
+            elif choice == 1:  # Update Product
+                self.update_product()
+            elif choice == 2:  # Delete Product
+                self.delete_product()
+            elif choice == 3:  # List Products by Category
+                self.list_products_by_category()
+            elif choice == 4:  # Search Products
+                self.admin_search_products()
+            elif choice == 5:  # Manage Featured Products
+                self.manage_featured_products()
+    
+    def admin_search_products(self):
+        """Search products as admin"""
         with self.term.fullscreen():
             print(self.term.clear)
-            print(self.term.move_y(2) + self.term.center(self.term.bold("Admin Help - Product Management Guide")))
+            print(self.term.move_y(2) + self.term.center(self.term.bold("Search Products")))
             print()
             
-            print(self.term.center("Here's a quick guide to managing products:"))
+            print(self.term.center("Enter search term: "), end="")
+            search_term = input().lower()
+            found_products = []
+            
+            for category in self.products_data["categories"]:
+                for product in category["products"]:
+                    if (search_term in product["id"].lower() or
+                        search_term in product["name"].lower() or 
+                        search_term in product["description"].lower() or
+                        search_term in " ".join(product["tags"]).lower()):
+                        found_products.append({
+                            "id": product["id"],
+                            "name": product["name"],
+                            "price": product["price"],
+                            "stock": product["stock"],
+                            "category": category["name"]
+                        })
+            
+            if not found_products:
+                print(self.term.center(self.term.red(f"No products found matching '{search_term}'.")))
+                input(self.term.center("Press Enter to continue..."))
+                return
+            
+            # Display found products as a menu
+            product_options = [f"{p['id']}: {p['name']} - ${p['price']} (Stock: {p['stock']}, Category: {p['category']})" 
+                              for p in found_products]
+            product_options.append("Back to Menu")
+            
+            product_menu = Menu(f"Found {len(found_products)} products", product_options)
+            prod_idx = product_menu.display()
+            
+            if prod_idx is None or prod_idx == len(product_options) - 1:
+                return
+            
+            # Show product details and options
+            selected_product = found_products[prod_idx]
+            self.admin_product_detail_menu(selected_product["id"])
+    
+    def admin_product_detail_menu(self, product_id):
+        """Menu for viewing and managing a specific product as admin"""
+        product = self.find_product_by_id(product_id)
+        if not product:
+            with self.term.fullscreen():
+                print(self.term.clear)
+                print(self.term.center(self.term.red(f"Product with ID {product_id} not found.")))
+                input(self.term.center("Press Enter to continue..."))
+            return
+        
+        while True:
+            with self.term.fullscreen():
+                print(self.term.clear)
+                print(self.term.move_y(2) + self.term.center(self.term.bold(f"Product Details: {product['name']}")))
+                print()
+                print(self.term.center(f"ID: {product['id']}"))
+                print(self.term.center(f"Price: ${product['price']}"))
+                print(self.term.center(f"Stock: {product['stock']}"))
+                print(self.term.center(f"Description: {product['description']}"))
+                print(self.term.center(f"Tags: {', '.join(product['tags'])}"))
+                print()
+            
+            action_menu = Menu("Select Action", [
+                "✏️ Edit Product", 
+                "❌ Delete Product",
+                "⭐ Toggle Featured Status",
+                "⬅️ Back to Menu"
+            ])
+            action = action_menu.display()
+            
+            if action is None or action == 3:  # Back option or 'q' pressed
+                return
+            elif action == 0:  # Edit Product
+                self.update_specific_product(product_id)
+            elif action == 1:  # Delete Product
+                if self.confirm_deletion(product["name"]):
+                    self.delete_specific_product(product_id)
+                    return  # Exit after deletion
+            elif action == 2:  # Toggle Featured Status
+                self.toggle_featured_status(product_id)
+                # Refresh product data
+                product = self.find_product_by_id(product_id)
+    
+    def toggle_featured_status(self, product_id):
+        """Toggle whether a product is featured or not"""
+        if product_id in self.products_data["featured_products"]:
+            self.products_data["featured_products"].remove(product_id)
+            status_message = f"Product removed from featured products."
+        else:
+            self.products_data["featured_products"].append(product_id)
+            status_message = f"Product added to featured products!"
+        
+        self.save_json(self.products_file, self.products_data)
+        
+        with self.term.fullscreen():
+            print(self.term.clear)
+            print(self.term.center(self.term.green(status_message)))
+            input(self.term.center("Press Enter to continue..."))
+    
+    def update_specific_product(self, product_id):
+        """Update a specific product by ID"""
+        product = self.find_product_by_id(product_id)
+        if not product:
+            return
+        
+        # Find category and product indices
+        category_index = None
+        product_index = None
+        for i, category in enumerate(self.products_data["categories"]):
+            for j, p in enumerate(category["products"]):
+                if p["id"] == product_id:
+                    category_index = i
+                    product_index = j
+                    break
+            if category_index is not None:
+                break
+        
+        if category_index is None:
+            return
+        
+        # Menu for selecting what to update
+        update_options = [
+            "Name", 
+            "Description", 
+            "Price", 
+            "Stock", 
+            "Tags", 
+            "Back to Product"
+        ]
+        
+        update_field_menu = Menu(f"Update Product: {product['name']}", update_options)
+        update_choice = update_field_menu.display()
+        
+        if update_choice is None or update_choice == 5:  # Back option or 'q' pressed
+            return
+        
+        # Update the selected field
+        with self.term.fullscreen():
+            print(self.term.clear)
+            field_name = update_options[update_choice]
+            print(self.term.move_y(2) + self.term.center(self.term.bold(f"Update {field_name}")))
             print()
             
-            # Add Product help
-            print(self.term.bold(self.term.center("1. Adding a Product:")))
-            print(self.term.center("- Product ID should be unique (e.g., 'e006' for Electronics)"))
-            print(self.term.center("- Categories have specific prefixes: e=Electronics, c=Clothing, h=Home, b=Books"))
-            print(self.term.center("- Example: When adding a new camera, use ID 'e006', price '499.99', stock '25'"))
-            print()
+            if update_choice == 0:  # Name
+                print(self.term.center(f"Current name: {product['name']}"))
+                print(self.term.center("New name: "), end="")
+                new_name = input()
+                product["name"] = new_name
+            elif update_choice == 1:  # Description
+                print(self.term.center(f"Current description: {product['description']}"))
+                print(self.term.center("New description: "), end="")
+                new_desc = input()
+                product["description"] = new_desc
+            elif update_choice == 2:  # Price
+                print(self.term.center(f"Current price: ${product['price']}"))
+                print(self.term.center("New price (e.g., 59.99): "), end="")
+                try:
+                    new_price = float(input())
+                    product["price"] = new_price
+                except ValueError:
+                    print(self.term.center(self.term.red("Invalid price. No changes made.")))
+                    input(self.term.center("Press Enter to continue..."))
+                    return
+            elif update_choice == 3:  # Stock
+                print(self.term.center(f"Current stock: {product['stock']}"))
+                print(self.term.center("New stock quantity: "), end="")
+                try:
+                    new_stock = int(input())
+                    product["stock"] = new_stock
+                except ValueError:
+                    print(self.term.center(self.term.red("Invalid stock. No changes made.")))
+                    input(self.term.center("Press Enter to continue..."))
+                    return
+            elif update_choice == 4:  # Tags
+                print(self.term.center(f"Current tags: {', '.join(product['tags'])}"))
+                print(self.term.center("New tags (comma-separated, e.g., premium, sale, new): "), end="")
+                new_tags = input()
+                product["tags"] = [tag.strip() for tag in new_tags.split(",")]
+        
+        # Save changes
+        self.save_json(self.products_file, self.products_data)
+        
+        # Show success message
+        with self.term.fullscreen():
+            print(self.term.clear)
+            print(self.term.center(self.term.green(f"Product updated successfully!")))
+            print(self.term.center(self.term.green(f"Field '{field_name}' has been updated.")))
+            input(self.term.center("Press Enter to continue..."))
+    
+    def confirm_deletion(self, product_name):
+        """Confirm product deletion"""
+        confirm_options = ["Yes, delete this product", "No, cancel deletion"]
+        confirm_menu = Menu(f"Confirm deletion of '{product_name}'?", confirm_options)
+        confirm_choice = confirm_menu.display()
+        
+        return confirm_choice == 0  # True if "Yes" was selected
+    
+    def delete_specific_product(self, product_id):
+        """Delete a specific product by ID"""
+        # Find and delete the product
+        deleted = False
+        for category in self.products_data["categories"]:
+            for i, product in enumerate(category["products"]):
+                if product["id"] == product_id:
+                    deleted_product = category["products"].pop(i)
+                    deleted = True
+                    break
+            if deleted:
+                break
+        
+        if deleted:
+            # Also remove from featured lists
+            for list_name in ["featured_products", "new_arrivals", "best_sellers", "on_sale"]:
+                if product_id in self.products_data[list_name]:
+                    self.products_data[list_name].remove(product_id)
             
-            # Delete Product help
-            print(self.term.bold(self.term.center("2. Deleting a Product:")))
-            print(self.term.center("- Select a product from the list using arrow keys"))
-            print(self.term.center("- Confirm deletion when prompted"))
-            print(self.term.center("- Deleted products are also removed from featured lists"))
-            print()
+            self.save_json(self.products_file, self.products_data)
             
-            # Update Product help
-            print(self.term.bold(self.term.center("3. Updating a Product:")))
-            print(self.term.center("- Select which field to update (Name, Price, Stock, etc.)"))
-            print(self.term.center("- For tags, use comma-separated values (e.g., 'sale, premium, new')"))
-            print()
+            # Show success message
+            with self.term.fullscreen():
+                print(self.term.clear)
+                print(self.term.center(self.term.green(f"Product has been deleted successfully!")))
+                input(self.term.center("Press Enter to continue..."))
+    
+    def manage_featured_products(self):
+        """Manage featured, new arrivals, best sellers, and on-sale products"""
+        while True:
+            featured_menu = Menu("Manage Featured Products", [
+                "⭐ Featured Products",
+                "🆕 New Arrivals",
+                "📈 Best Sellers",
+                "🏷️ On Sale",
+                "⬅️ Back to Product Management"
+            ])
+            choice = featured_menu.display()
             
-            print(self.term.center("Press Enter to continue..."))
-            input()
+            if choice is None or choice == 4:  # Back option or 'q' pressed
+                return
+                
+            list_types = ["featured_products", "new_arrivals", "best_sellers", "on_sale"]
+            list_type = list_types[choice]
+            list_name = ["Featured Products", "New Arrivals", "Best Sellers", "On Sale"][choice]
+            
+            self.edit_product_list(list_type, list_name)
+    
+    def edit_product_list(self, list_type, list_name):
+        """Edit a specific product list (featured, new arrivals, etc.)"""
+        while True:
+            # Get current products in the list
+            product_ids = self.products_data[list_type]
+            current_products = []
+            
+            for product_id in product_ids:
+                product = self.find_product_by_id(product_id)
+                if product:
+                    current_products.append({
+                        "id": product["id"],
+                        "name": product["name"],
+                        "price": product["price"],
+                        "stock": product["stock"]
+                    })
+            
+            # Create menu options
+            edit_options = [
+                "👁️ View Current Products",
+                "➕ Add Product to List",
+                "❌ Remove Product from List",
+                "⬅️ Back to Featured Management"
+            ]
+            
+            edit_menu = Menu(f"Edit {list_name}", edit_options)
+            edit_choice = edit_menu.display()
+            
+            if edit_choice is None or edit_choice == 3:  # Back option or 'q' pressed
+                return
+            elif edit_choice == 0:  # View Current Products
+                self.view_product_list(current_products, list_name)
+            elif edit_choice == 1:  # Add Product to List
+                self.add_product_to_list(list_type, list_name)
+            elif edit_choice == 2:  # Remove Product from List
+                self.remove_product_from_list(current_products, list_type, list_name)
+    
+    def view_product_list(self, products, list_name):
+        """View products in a list"""
+        if not products:
+            with self.term.fullscreen():
+                print(self.term.clear)
+                print(self.term.center(self.term.yellow(f"No products in {list_name}.")))
+                input(self.term.center("Press Enter to continue..."))
+            return
+        
+        product_options = [f"{p['id']}: {p['name']} - ${p['price']} (Stock: {p['stock']})" 
+                          for p in products]
+        product_options.append("Back to Menu")
+        
+        product_menu = Menu(f"{list_name} ({len(products)} products)", product_options)
+        prod_idx = product_menu.display()
+        
+        if prod_idx is None or prod_idx == len(product_options) - 1:
+            return
+        
+        # Show product details
+        selected_product = products[prod_idx]
+        self.admin_product_detail_menu(selected_product["id"])
+    
+    def add_product_to_list(self, list_type, list_name):
+        """Add a product to a featured list"""
+        # Get all products not already in the list
+        all_products = []
+        current_list = self.products_data[list_type]
+        
+        for category in self.products_data["categories"]:
+            for product in category["products"]:
+                if product["id"] not in current_list:
+                    all_products.append({
+                        "id": product["id"],
+                        "name": product["name"],
+                        "category": category["name"],
+                        "price": product["price"],
+                        "stock": product["stock"]
+                    })
+        
+        if not all_products:
+            with self.term.fullscreen():
+                print(self.term.clear)
+                print(self.term.center(self.term.yellow("All products are already in this list.")))
+                input(self.term.center("Press Enter to continue..."))
+            return
+        
+        # Create menu options
+        product_options = [f"{p['id']}: {p['name']} - ${p['price']} (Category: {p['category']})" 
+                          for p in all_products]
+        product_options.append("Back to Menu")
+        
+        product_menu = Menu(f"Add Product to {list_name}", product_options)
+        prod_idx = product_menu.display()
+        
+        if prod_idx is None or prod_idx == len(product_options) - 1:
+            return
+        
+        # Add selected product to the list
+        selected_product = all_products[prod_idx]
+        self.products_data[list_type].append(selected_product["id"])
+        self.save_json(self.products_file, self.products_data)
+        
+        with self.term.fullscreen():
+            print(self.term.clear)
+            print(self.term.center(self.term.green(f"{selected_product['name']} added to {list_name}!")))
+            input(self.term.center("Press Enter to continue..."))
+    
+    def remove_product_from_list(self, products, list_type, list_name):
+        """Remove a product from a featured list"""
+        if not products:
+            with self.term.fullscreen():
+                print(self.term.clear)
+                print(self.term.center(self.term.yellow(f"No products in {list_name}.")))
+                input(self.term.center("Press Enter to continue..."))
+            return
+        
+        # Create menu options
+        product_options = [f"{p['id']}: {p['name']} - ${p['price']} (Stock: {p['stock']})" 
+                          for p in products]
+        product_options.append("Back to Menu")
+        
+        product_menu = Menu(f"Remove Product from {list_name}", product_options)
+        prod_idx = product_menu.display()
+        
+        if prod_idx is None or prod_idx == len(product_options) - 1:
+            return
+        
+        # Remove selected product from the list
+        selected_product = products[prod_idx]
+        self.products_data[list_type].remove(selected_product["id"])
+        self.save_json(self.products_file, self.products_data)
+        
+        with self.term.fullscreen():
+            print(self.term.clear)
+            print(self.term.center(self.term.green(f"{selected_product['name']} removed from {list_name}.")))
+            input(self.term.center("Press Enter to continue..."))
+    
+    def show_reports_menu(self):
+        """Display reports and statistics menu"""
+        with self.term.fullscreen():
+            print(self.term.clear)
+            print(self.term.move_y(2) + self.term.center(self.term.bold("Reports & Statistics")))
+            print()
+            print(self.term.center(self.term.yellow("This feature is coming soon!")))
+            print(self.term.center("Future reports will include:"))
+            print(self.term.center("- Sales reports"))
+            print(self.term.center("- Inventory status"))
+            print(self.term.center("- Customer activity"))
+            print(self.term.center("- Popular products"))
+            input(self.term.center("\nPress Enter to return to Admin Menu..."))
+    
+    def settings_menu(self):
+        """Display settings menu"""
+        with self.term.fullscreen():
+            print(self.term.clear)
+            print(self.term.move_y(2) + self.term.center(self.term.bold("Settings")))
+            print()
+            print(self.term.center(self.term.yellow("This feature is coming soon!")))
+            print(self.term.center("Future settings will include:"))
+            print(self.term.center("- User profile settings"))
+            print(self.term.center("- Application preferences"))
+            print(self.term.center("- Theme customization"))
+            print(self.term.center("- Backup and restore"))
+            input(self.term.center("\nPress Enter to return to Admin Menu..."))
     
     def add_product(self):
         # First collect basic product information
@@ -1056,6 +1477,45 @@ class CLIController:
             print(self.term.center(self.term.green("Order completed! Thank you for your purchase.")))
             cart.clear()
             input(self.term.center("Press Enter to continue..."))
+    
+    def show_admin_help(self):
+        """Display help information for admin users"""
+        with self.term.fullscreen():
+            print(self.term.clear)
+            print(self.term.move_y(2) + self.term.center(self.term.bold("Admin Help Guide")))
+            print()
+            
+            print(self.term.center("Welcome to the WebStore Admin Panel"))
+            print()
+            
+            # Main menu navigation
+            print(self.term.bold(self.term.center("🧭 Navigation:")))
+            print(self.term.center("- Use ↑/↓ arrow keys to navigate through menu options"))
+            print(self.term.center("- Press Enter to select an option"))
+            print(self.term.center("- Press 'q' to go back or quit a menu"))
+            print()
+            
+            # Product Management help
+            print(self.term.bold(self.term.center("📦 Product Management:")))
+            print(self.term.center("- Add Product: Create new products with unique IDs"))
+            print(self.term.center("  (Use prefixes: e=Electronics, c=Clothing, h=Home, b=Books)"))
+            print(self.term.center("- Update Product: Modify existing product details"))
+            print(self.term.center("- Delete Product: Remove products from inventory"))
+            print(self.term.center("- List Products: Browse products by category"))
+            print(self.term.center("- Featured Products: Manage special product lists"))
+            print()
+            
+            # Tips
+            print(self.term.bold(self.term.center("💡 Quick Tips:")))
+            print(self.term.center("- Add meaningful product descriptions for better search results"))
+            print(self.term.center("- Use comma-separated tags (e.g., 'premium, sale, new')"))
+            print(self.term.center("- Keep inventory up to date by regularly checking stock levels"))
+            print(self.term.center("- Feature your best products to increase visibility"))
+            print()
+            
+            # Help message
+            help_menu = Menu("Continue", ["Return to Admin Menu"])
+            help_menu.display()
 
 # Run the application if this file is executed directly
 if __name__ == "__main__":
