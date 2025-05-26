@@ -24,7 +24,12 @@
             "average": 4.7,
             "count": 128
           },
-          "tags": ["smartphone", "mobile", "tech", "featured"]
+          "tags": [
+            "smartphone",
+            "mobile",
+            "tech",
+            "featured"
+          ]
         },
         {
           "id": "e002",
@@ -37,13 +42,93 @@
             "type": "Over-ear",
             "connectivity": "Bluetooth 5.0",
             "battery": "30 hours",
-            "features": ["Noise cancellation", "Built-in mic"]
+            "features": [
+              "Noise cancellation",
+              "Built-in mic"
+            ]
           },
           "ratings": {
             "average": 4.5,
             "count": 96
           },
-          "tags": ["audio", "wireless", "headphones"]
+          "tags": [
+            "audio",
+            "wireless",
+            "headphones"
+          ]
+        },
+        {
+          "id": "e003",
+          "name": "Smart Watch Pro",
+          "description": "Fitness and health tracking with smart notifications",
+          "price": 249.99,
+          "stock": 40,
+          "image_url": "smartwatch_pro.jpg",
+          "specifications": {
+            "display": "1.4 inch AMOLED",
+            "battery": "7 days standby",
+            "sensors": [
+              "Heart rate",
+              "SpO2",
+              "Accelerometer"
+            ],
+            "water_resistant": "5 ATM"
+          },
+          "ratings": {
+            "average": 4.6,
+            "count": 83
+          },
+          "tags": [
+            "wearable",
+            "fitness",
+            "smartwatch"
+          ]
+        },
+        {
+          "id": "e004",
+          "name": "Gaming Laptop Ultra",
+          "description": "High-performance gaming laptop with RGB keyboard",
+          "price": 1499.99,
+          "stock": 20,
+          "image_url": "gaming_laptop.jpg",
+          "specifications": {
+            "processor": "Intel i9 12th Gen",
+            "gpu": "NVIDIA RTX 3080",
+            "ram": "32GB DDR5",
+            "storage": "1TB NVMe SSD",
+            "display": "15.6 inch 165Hz"
+          },
+          "ratings": {
+            "average": 4.8,
+            "count": 64
+          },
+          "tags": [
+            "gaming",
+            "laptop",
+            "high-performance"
+          ]
+        },
+        {
+          "id": "e005",
+          "name": "Wireless Charging Pad",
+          "description": "Fast wireless charging for compatible devices",
+          "price": 39.99,
+          "stock": 100,
+          "image_url": "charging_pad.jpg",
+          "specifications": {
+            "input": "USB-C",
+            "output": "15W max",
+            "compatibility": "Qi standard"
+          },
+          "ratings": {
+            "average": 4.3,
+            "count": 112
+          },
+          "tags": [
+            "charging",
+            "accessories",
+            "wireless"
+          ]
         }
       ]
     },
@@ -62,14 +147,28 @@
           "image_url": "tshirt.jpg",
           "specifications": {
             "material": "100% Cotton",
-            "sizes": ["S", "M", "L", "XL"],
-            "colors": ["Black", "White", "Blue", "Gray"]
+            "sizes": [
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "colors": [
+              "Black",
+              "White",
+              "Blue",
+              "Gray"
+            ]
           },
           "ratings": {
             "average": 4.3,
             "count": 85
           },
-          "tags": ["men", "casual", "top"]
+          "tags": [
+            "men",
+            "casual",
+            "top"
+          ]
         },
         {
           "id": "c002",
@@ -81,21 +180,145 @@
           "specifications": {
             "material": "Denim",
             "fit": "Regular",
-            "sizes": ["26", "28", "30", "32", "34"],
-            "colors": ["Blue", "Black"]
+            "sizes": [
+              "26",
+              "28",
+              "30",
+              "32",
+              "34"
+            ],
+            "colors": [
+              "Blue",
+              "Black"
+            ]
           },
           "ratings": {
             "average": 4.6,
             "count": 112
           },
-          "tags": ["women", "casual", "bottom"]
+          "tags": [
+            "women",
+            "casual",
+            "bottom"
+          ]
+        },
+        {
+          "id": "c003",
+          "name": "Unisex Hoodie",
+          "description": "Warm and comfortable pullover hoodie",
+          "price": 39.99,
+          "stock": 65,
+          "image_url": "hoodie.jpg",
+          "specifications": {
+            "material": "80% Cotton, 20% Polyester",
+            "sizes": [
+              "S",
+              "M",
+              "L",
+              "XL",
+              "XXL"
+            ],
+            "colors": [
+              "Black",
+              "Gray",
+              "Navy",
+              "Red"
+            ]
+          },
+          "ratings": {
+            "average": 4.7,
+            "count": 94
+          },
+          "tags": [
+            "unisex",
+            "casual",
+            "winter"
+          ]
+        },
+        {
+          "id": "c004",
+          "name": "Women's Summer Dress",
+          "description": "Lightweight floral print dress perfect for summer",
+          "price": 59.99,
+          "stock": 45,
+          "image_url": "summer_dress.jpg",
+          "specifications": {
+            "material": "Rayon",
+            "length": "Knee length",
+            "sizes": [
+              "XS",
+              "S",
+              "M",
+              "L"
+            ],
+            "pattern": "Floral print"
+          },
+          "ratings": {
+            "average": 4.5,
+            "count": 78
+          },
+          "tags": [
+            "women",
+            "summer",
+            "dress"
+          ]
+        },
+        {
+          "id": "c005",
+          "name": "Men's Formal Shirt",
+          "description": "Classic fit button-down formal shirt",
+          "price": 45.99,
+          "stock": 60,
+          "image_url": "formal_shirt.jpg",
+          "specifications": {
+            "material": "Cotton blend",
+            "fit": "Regular fit",
+            "sizes": [
+              "S",
+              "M",
+              "L",
+              "XL",
+              "XXL"
+            ],
+            "colors": [
+              "White",
+              "Light Blue",
+              "Pink",
+              "Lavender"
+            ]
+          },
+          "ratings": {
+            "average": 4.4,
+            "count": 56
+          },
+          "tags": [
+            "men",
+            "formal",
+            "business"
+          ]
+        },
+        {
+          "id": "c007",
+          "name": "Hat",
+          "description": "blue hat with white circles",
+          "price": 39.99,
+          "stock": 5,
+          "image_url": "hat.jpg",
+          "specifications": {
+            "\u001b": ""
+          },
+          "ratings": {
+            "average": 0,
+            "count": 0
+          },
+          "tags": []
         }
       ]
     },
     {
       "id": "home",
       "name": "Home & Kitchen",
-      "description": "Home décor and kitchen appliances",
+      "description": "Home d\u00e9cor and kitchen appliances",
       "image_url": "home.jpg",
       "products": [
         {
@@ -108,13 +331,21 @@
           "specifications": {
             "capacity": "12 cups",
             "connectivity": "Wi-Fi, Bluetooth",
-            "features": ["Programmable", "Auto-shutoff", "Voice control"]
+            "features": [
+              "Programmable",
+              "Auto-shutoff",
+              "Voice control"
+            ]
           },
           "ratings": {
             "average": 4.4,
             "count": 72
           },
-          "tags": ["kitchen", "appliance", "smart home"]
+          "tags": [
+            "kitchen",
+            "appliance",
+            "smart home"
+          ]
         },
         {
           "id": "h002",
@@ -126,19 +357,192 @@
           "specifications": {
             "material": "Cotton blend",
             "size": "18 x 18 inches",
-            "colors": ["Beige", "Gray", "Blue", "Pink"]
+            "colors": [
+              "Beige",
+              "Gray",
+              "Blue",
+              "Pink"
+            ]
           },
           "ratings": {
             "average": 4.2,
             "count": 65
           },
-          "tags": ["home decor", "living room", "bedroom"]
+          "tags": [
+            "home decor",
+            "living room",
+            "bedroom"
+          ]
+        },
+        {
+          "id": "h003",
+          "name": "Stainless Steel Cookware Set",
+          "description": "10-piece professional grade cookware set",
+          "price": 189.99,
+          "stock": 25,
+          "image_url": "cookware_set.jpg",
+          "specifications": {
+            "material": "18/10 Stainless Steel",
+            "pieces": 10,
+            "dishwasher_safe": true,
+            "induction_compatible": true
+          },
+          "ratings": {
+            "average": 4.7,
+            "count": 124
+          },
+          "tags": [
+            "kitchen",
+            "cookware",
+            "premium"
+          ]
+        },
+        {
+          "id": "h004",
+          "name": "Smart LED Light Bulbs",
+          "description": "Set of 4 color-changing smart bulbs with app control",
+          "price": 49.99,
+          "stock": 80,
+          "image_url": "smart_bulbs.jpg",
+          "specifications": {
+            "wattage": "9W (60W equivalent)",
+            "connectivity": "Wi-Fi",
+            "compatibility": "Alexa, Google Home",
+            "colors": "16 million colors"
+          },
+          "ratings": {
+            "average": 4.5,
+            "count": 208
+          },
+          "tags": [
+            "smart home",
+            "lighting",
+            "energy efficient"
+          ]
+        },
+        {
+          "id": "h005",
+          "name": "Bamboo Kitchen Organizer",
+          "description": "Expandable drawer organizer for utensils and gadgets",
+          "price": 32.99,
+          "stock": 45,
+          "image_url": "drawer_organizer.jpg",
+          "specifications": {
+            "material": "Sustainable bamboo",
+            "dimensions": "17.5-22 x 12.5 x 2.5 inches",
+            "compartments": "7-9 adjustable"
+          },
+          "ratings": {
+            "average": 4.3,
+            "count": 89
+          },
+          "tags": [
+            "kitchen",
+            "organization",
+            "eco-friendly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "books",
+      "name": "Books & Media",
+      "description": "Books, ebooks, and digital media",
+      "image_url": "books.jpg",
+      "products": [
+        {
+          "id": "b001",
+          "name": "The Modern Cookbook",
+          "description": "Contemporary recipes for the home chef",
+          "price": 29.99,
+          "stock": 60,
+          "image_url": "cookbook.jpg",
+          "specifications": {
+            "format": "Hardcover",
+            "pages": 342,
+            "author": "Chef Maria Johnson"
+          },
+          "ratings": {
+            "average": 4.8,
+            "count": 156
+          },
+          "tags": [
+            "cookbook",
+            "recipes",
+            "bestseller"
+          ]
+        },
+        {
+          "id": "b002",
+          "name": "Business Strategy Guide",
+          "description": "Practical guide to modern business strategy",
+          "price": 24.99,
+          "stock": 45,
+          "image_url": "business_book.jpg",
+          "specifications": {
+            "format": "Paperback",
+            "pages": 280,
+            "author": "James Anderson"
+          },
+          "ratings": {
+            "average": 4.6,
+            "count": 112
+          },
+          "tags": [
+            "business",
+            "self-help",
+            "career"
+          ]
+        },
+        {
+          "id": "b003",
+          "name": "Historical Fiction Collection",
+          "description": "Box set of 3 historical fiction novels",
+          "price": 42.99,
+          "stock": 35,
+          "image_url": "fiction_collection.jpg",
+          "specifications": {
+            "format": "Paperback box set",
+            "books": 3,
+            "author": "Various bestselling authors"
+          },
+          "ratings": {
+            "average": 4.7,
+            "count": 86
+          },
+          "tags": [
+            "fiction",
+            "collection",
+            "historical"
+          ]
         }
       ]
     }
   ],
-  "featured_products": ["e001", "h001"],
-  "new_arrivals": ["c002", "h002"],
-  "best_sellers": ["e002", "c001"],
-  "on_sale": []
+  "featured_products": [
+    "e001",
+    "h001",
+    "e003",
+    "c004",
+    "b001"
+  ],
+  "new_arrivals": [
+    "c002",
+    "h002",
+    "e004",
+    "h004",
+    "b003"
+  ],
+  "best_sellers": [
+    "e002",
+    "c001",
+    "h003",
+    "c003",
+    "b002"
+  ],
+  "on_sale": [
+    "e005",
+    "c005",
+    "h005"
+  ]
 }

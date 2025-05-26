@@ -44,8 +44,10 @@ __pycache__/
 
 # Virtual environments
 venv/
+.venv/
 env/
 ENV/
+.env
 
 # IDE specific files
 .idea/
@@ -63,9 +65,17 @@ Thumbs.db
     print(".gitignore created successfully.")
 
 # Setup virtual environment if needed
-venv_dir = os.path.join(current_dir, 'venv')
+venv_dir = os.path.join(current_dir, 'venv')  # Using 'venv' folder (not '.venv')
 venv_bin = os.path.join(venv_dir, 'bin')
 venv_python = os.path.join(venv_bin, 'python')
+
+# Check if .venv directory was attempted (for backward compatibility)
+alt_venv_dir = os.path.join(current_dir, '.venv')
+if os.path.exists(alt_venv_dir) and not os.path.exists(venv_dir):
+    print("Found '.venv' directory instead of 'venv'. Using the existing environment.")
+    venv_dir = alt_venv_dir
+    venv_bin = os.path.join(venv_dir, 'bin')
+    venv_python = os.path.join(venv_bin, 'python')
 
 if not os.path.exists(venv_dir):
     print("Creating virtual environment...")
@@ -74,14 +84,23 @@ if not os.path.exists(venv_dir):
 # Install requirements from requirements.txt
 if os.path.exists(requirements_file):
     print("Installing requirements from requirements.txt...")
-    subprocess.check_call([os.path.join(venv_bin, 'pip'), 'install', '-r', requirements_file])
+    try:
+        subprocess.check_call([os.path.join(venv_bin, 'pip'), 'install', '-r', requirements_file])
+    except Exception as e:
+        print(f"Warning: Failed to install requirements: {e}")
+        print("Continuing with available packages...")
 
 # Restart script with venv Python if we're not already using it
 # Add a guard to prevent endless loops
 if sys.executable != venv_python and not os.environ.get('VENV_PYTHON_RUNNING'):
     os.environ['VENV_PYTHON_RUNNING'] = '1'
     try:
-        os.execv(venv_python, [venv_python] + sys.argv)
+        # Check if the venv Python exists before trying to use it
+        if os.path.exists(venv_python):
+            os.execv(venv_python, [venv_python] + sys.argv)
+        else:
+            print(f"Warning: Virtual environment Python not found at {venv_python}")
+            print("Continuing with system Python...")
     except FileNotFoundError:
         print(f"Warning: Could not find Python in virtual environment at {venv_python}")
         print("Continuing with system Python...")
@@ -327,13 +346,16 @@ class CLIController:
             input(self.term.center("Press Enter to continue..."))
 
     def admin_menu(self):
+        # Show quick help on first login
+        self.show_admin_help()
+        
         while True:
             admin_menu = Menu(f"Admin Menu - {self.current_user.username}", 
                             ["Add Product", "Delete Product", "List Products by Category", 
-                             "Update Product", "Logout"])
+                             "Update Product", "Help", "Logout"])
             choice = admin_menu.display()
             
-            if choice is None or choice == 4:  # Logout option or 'q' pressed
+            if choice is None or choice == 5:  # Logout option or 'q' pressed
                 self.current_user = None
                 break
             elif choice == 0:
@@ -344,6 +366,40 @@ class CLIController:
                 self.list_products_by_category()
             elif choice == 3:
                 self.update_product()
+            elif choice == 4:
+                self.show_admin_help()
+    
+    def show_admin_help(self):
+        with self.term.fullscreen():
+            print(self.term.clear)
+            print(self.term.move_y(2) + self.term.center(self.term.bold("Admin Help - Product Management Guide")))
+            print()
+            
+            print(self.term.center("Here's a quick guide to managing products:"))
+            print()
+            
+            # Add Product help
+            print(self.term.bold(self.term.center("1. Adding a Product:")))
+            print(self.term.center("- Product ID should be unique (e.g., 'e006' for Electronics)"))
+            print(self.term.center("- Categories have specific prefixes: e=Electronics, c=Clothing, h=Home, b=Books"))
+            print(self.term.center("- Example: When adding a new camera, use ID 'e006', price '499.99', stock '25'"))
+            print()
+            
+            # Delete Product help
+            print(self.term.bold(self.term.center("2. Deleting a Product:")))
+            print(self.term.center("- Select a product from the list using arrow keys"))
+            print(self.term.center("- Confirm deletion when prompted"))
+            print(self.term.center("- Deleted products are also removed from featured lists"))
+            print()
+            
+            # Update Product help
+            print(self.term.bold(self.term.center("3. Updating a Product:")))
+            print(self.term.center("- Select which field to update (Name, Price, Stock, etc.)"))
+            print(self.term.center("- For tags, use comma-separated values (e.g., 'sale, premium, new')"))
+            print()
+            
+            print(self.term.center("Press Enter to continue..."))
+            input()
     
     def add_product(self):
         # First collect basic product information
@@ -352,8 +408,19 @@ class CLIController:
             print(self.term.move_y(2) + self.term.center(self.term.bold("Add New Product")))
             print()
             
-            print(self.term.center("Product ID (e.g., e003): "), end="")
+            # Show quick help
+            print(self.term.center(self.term.yellow("Quick Tip: Use category-specific prefixes for product IDs:")))
+            print(self.term.center(self.term.yellow("'e' for Electronics, 'c' for Clothing, 'h' for Home, 'b' for Books")))
+            print()
+            
+            print(self.term.center("Product ID (e.g., e006, c006, h006, b004): "), end="")
             prod_id = input()
+            
+            # Check if ID already exists
+            if self.find_product_by_id(prod_id):
+                print(self.term.center(self.term.red(f"Error: Product ID '{prod_id}' already exists.")))
+                input(self.term.center("Press Enter to continue..."))
+                return
             
             print(self.term.center("Product Name: "), end="")
             name = input()
@@ -361,7 +428,7 @@ class CLIController:
             print(self.term.center("Description: "), end="")
             description = input()
             
-            print(self.term.center("Price: "), end="")
+            print(self.term.center("Price (e.g., 49.99): "), end="")
             try:
                 price = float(input())
             except ValueError:
@@ -468,6 +535,18 @@ class CLIController:
         product_options = [f"{p['id']}: {p['name']} - ${p['price']} (Stock: {p['stock']}, Category: {p['category']})" 
                           for p in all_products]
         product_options.append("Back to Admin Menu")
+        
+        with self.term.fullscreen():
+            print(self.term.clear)
+            print(self.term.move_y(2) + self.term.center(self.term.bold("Delete Product")))
+            print()
+            
+            # Show quick help
+            print(self.term.center(self.term.yellow("Instructions:")))
+            print(self.term.center(self.term.yellow("1. Use arrow keys to select a product")))
+            print(self.term.center(self.term.yellow("2. Press Enter to select")))
+            print(self.term.center(self.term.yellow("3. Confirm deletion on the next screen")))
+            print()
         
         delete_menu = Menu("Select a Product to Delete", product_options)
         prod_idx = delete_menu.display()
@@ -583,6 +662,22 @@ class CLIController:
                           for p in all_products]
         product_options.append("Back to Admin Menu")
         
+        with self.term.fullscreen():
+            print(self.term.clear)
+            print(self.term.move_y(2) + self.term.center(self.term.bold("Update Product")))
+            print()
+            
+            # Show quick help
+            print(self.term.center(self.term.yellow("Instructions:")))
+            print(self.term.center(self.term.yellow("1. Select a product to update")))
+            print(self.term.center(self.term.yellow("2. Choose which field to update (name, price, etc.)")))
+            print(self.term.center(self.term.yellow("3. Enter the new value")))
+            print()
+            print(self.term.center(self.term.yellow("Example updates:")))
+            print(self.term.center(self.term.yellow("- Price: 59.99 (numbers only)")))
+            print(self.term.center(self.term.yellow("- Tags: premium, sale, new (comma-separated)")))
+            print()
+        
         update_menu = Menu("Select a Product to Update", product_options)
         prod_idx = update_menu.display()
         
@@ -630,7 +725,7 @@ class CLIController:
                 product["description"] = new_desc
             elif update_choice == 2:  # Price
                 print(self.term.center(f"Current price: ${product['price']}"))
-                print(self.term.center("New price: "), end="")
+                print(self.term.center("New price (e.g., 59.99): "), end="")
                 try:
                     new_price = float(input())
                     product["price"] = new_price
@@ -650,7 +745,7 @@ class CLIController:
                     return
             elif update_choice == 4:  # Tags
                 print(self.term.center(f"Current tags: {', '.join(product['tags'])}"))
-                print(self.term.center("New tags (comma-separated): "), end="")
+                print(self.term.center("New tags (comma-separated, e.g., premium, sale, new): "), end="")
                 new_tags = input()
                 product["tags"] = [tag.strip() for tag in new_tags.split(",")]
         
@@ -661,6 +756,7 @@ class CLIController:
         with self.term.fullscreen():
             print(self.term.clear)
             print(self.term.center(self.term.green(f"Product updated successfully!")))
+            print(self.term.center(self.term.green(f"Field '{field_name}' has been updated.")))
             input(self.term.center("Press Enter to continue..."))
 
     def customer_menu(self):
