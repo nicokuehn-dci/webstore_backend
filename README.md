@@ -1,7 +1,7 @@
 # WebStore App - Interactive CLI Menu System
 
 A command-line interface for managing products and users in a web store application. 
-Features an interactive menu system with arrow key navigation and colored UI.
+Features an interactive menu system with arrow key navigation and colored UI (orange background with black text).
 
 ## Features
 
