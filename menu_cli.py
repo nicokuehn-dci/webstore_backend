@@ -346,6 +346,7 @@ class CLIController:
                 self.update_product()
     
     def add_product(self):
+        # First collect basic product information
         with self.term.fullscreen():
             print(self.term.clear)
             print(self.term.move_y(2) + self.term.center(self.term.bold("Add New Product")))
@@ -375,201 +376,292 @@ class CLIController:
                 print(self.term.center(self.term.red("Invalid stock. Please enter a number.")))
                 input(self.term.center("Press Enter to continue..."))
                 return
+        
+        # Select category using Menu
+        category_options = [category['name'] for category in self.products_data["categories"]]
+        category_options.append("Back to Admin Menu")
+        
+        category_menu = Menu("Select a Category for the Product", category_options)
+        cat_choice = category_menu.display()
+        
+        if cat_choice is None or cat_choice == len(category_options) - 1:  # Back option or 'q' pressed
+            return
+        
+        # Create new product
+        new_product = {
+            "id": prod_id,
+            "name": name,
+            "description": description,
+            "price": price,
+            "stock": stock,
+            "image_url": f"{name.lower().replace(' ', '_')}.jpg",
+            "specifications": {},
+            "ratings": {"average": 0, "count": 0},
+            "tags": []
+        }
+        
+        # Add specifications
+        spec_options = ["Add a specification", "Finish adding specifications"]
+        while True:
+            spec_menu = Menu("Add Product Specifications", spec_options)
+            spec_choice = spec_menu.display()
             
-            # Get category
-            print(self.term.center(self.term.bold("\nAvailable Categories:")))
-            for i, category in enumerate(self.products_data["categories"]):
-                print(self.term.center(f"{i+1}. {category['name']}"))
+            if spec_choice is None or spec_choice == 1:  # Finish option or 'q' pressed
+                break
+                
+            # Add a specification
+            with self.term.fullscreen():
+                print(self.term.clear)
+                print(self.term.move_y(2) + self.term.center(self.term.bold("Add Specification")))
+                print()
+                
+                print(self.term.center("Specification name: "), end="")
+                spec_key = input()
+                
+                print(self.term.center(f"Value for {spec_key}: "), end="")
+                spec_value = input()
+                
+                new_product["specifications"][spec_key] = spec_value
+        
+        # Add tags
+        with self.term.fullscreen():
+            print(self.term.clear)
+            print(self.term.move_y(2) + self.term.center(self.term.bold("Add Product Tags")))
+            print()
             
-            print(self.term.center("Choose category number: "), end="")
-            try:
-                cat_choice = int(input()) - 1
-                if cat_choice < 0 or cat_choice >= len(self.products_data["categories"]):
-                    print(self.term.center(self.term.red("Invalid category choice")))
-                    input(self.term.center("Press Enter to continue..."))
-                    return
-            except ValueError:
-                print(self.term.center(self.term.red("Invalid input. Please enter a number.")))
-                input(self.term.center("Press Enter to continue..."))
-                return
-            
-            # Create new product
-            new_product = {
-                "id": prod_id,
-                "name": name,
-                "description": description,
-                "price": price,
-                "stock": stock,
-                "image_url": f"{name.lower().replace(' ', '_')}.jpg",
-                "specifications": {},
-                "ratings": {"average": 0, "count": 0},
-                "tags": []
-            }
-            
-            # Add specs
-            print(self.term.center("Add specifications? (y/n): "), end="")
-            specs = input()
-            if specs.lower() == "y":
-                while True:
-                    print(self.term.center("Specification name (or 'done' to finish): "), end="")
-                    spec_key = input()
-                    if spec_key.lower() == "done":
-                        break
-                    print(self.term.center(f"Value for {spec_key}: "), end="")
-                    spec_value = input()
-                    new_product["specifications"][spec_key] = spec_value
-            
-            # Add tags
-            print(self.term.center("Add tags (comma-separated): "), end="")
+            print(self.term.center("Enter tags (comma-separated): "), end="")
             tags = input()
             if tags:
                 new_product["tags"] = [tag.strip() for tag in tags.split(",")]
-            
-            # Add to category
-            self.products_data["categories"][cat_choice]["products"].append(new_product)
-            self.save_json(self.products_file, self.products_data)
+        
+        # Add to category
+        self.products_data["categories"][cat_choice]["products"].append(new_product)
+        self.save_json(self.products_file, self.products_data)
+        
+        # Show success message
+        with self.term.fullscreen():
+            print(self.term.clear)
             print(self.term.center(self.term.green(f"Product '{name}' added successfully!")))
             input(self.term.center("Press Enter to continue..."))
     
     def delete_product(self):
-        with self.term.fullscreen():
-            print(self.term.clear)
-            print(self.term.move_y(2) + self.term.center(self.term.bold("Delete Product")))
-            print()
+        # Get all products from all categories
+        all_products = []
+        for category in self.products_data["categories"]:
+            for product in category["products"]:
+                all_products.append({
+                    "id": product["id"],
+                    "name": product["name"],
+                    "category": category["name"],
+                    "price": product["price"],
+                    "stock": product["stock"]
+                })
+        
+        if not all_products:
+            with self.term.fullscreen():
+                print(self.term.clear)
+                print(self.term.center(self.term.red("No products available to delete.")))
+                input(self.term.center("Press Enter to continue..."))
+            return
+        
+        # Create menu options for product deletion
+        product_options = [f"{p['id']}: {p['name']} - ${p['price']} (Stock: {p['stock']}, Category: {p['category']})" 
+                          for p in all_products]
+        product_options.append("Back to Admin Menu")
+        
+        delete_menu = Menu("Select a Product to Delete", product_options)
+        prod_idx = delete_menu.display()
+        
+        if prod_idx is None or prod_idx == len(product_options) - 1:  # Back option or 'q' pressed
+            return
+        
+        # Get selected product ID
+        selected_product = all_products[prod_idx]
+        prod_id = selected_product["id"]
+        
+        # Confirm deletion
+        confirm_options = ["Yes, delete this product", "No, cancel deletion"]
+        confirm_menu = Menu(f"Confirm deletion of '{selected_product['name']}'?", confirm_options)
+        confirm_choice = confirm_menu.display()
+        
+        if confirm_choice is None or confirm_choice == 1:  # Cancel option or 'q' pressed
+            return
             
-            print(self.term.center("Enter Product ID to delete: "), end="")
-            prod_id = input()
-            deleted = False
-            
-            for category in self.products_data["categories"]:
-                for i, product in enumerate(category["products"]):
-                    if product["id"] == prod_id:
-                        deleted_product = category["products"].pop(i)
-                        deleted = True
-                        print(self.term.center(self.term.green(f"Product '{deleted_product['name']}' deleted!")))
-                        break
-                if deleted:
+        # Delete the product if confirmed
+        deleted = False
+        for category in self.products_data["categories"]:
+            for i, product in enumerate(category["products"]):
+                if product["id"] == prod_id:
+                    deleted_product = category["products"].pop(i)
+                    deleted = True
                     break
-            
             if deleted:
-                # Also remove from featured lists
-                for list_name in ["featured_products", "new_arrivals", "best_sellers", "on_sale"]:
-                    if prod_id in self.products_data[list_name]:
-                        self.products_data[list_name].remove(prod_id)
-                
-                self.save_json(self.products_file, self.products_data)
-            else:
-                print(self.term.center(self.term.red(f"Product with ID '{prod_id}' not found!")))
+                break
+        
+        if deleted:
+            # Also remove from featured lists
+            for list_name in ["featured_products", "new_arrivals", "best_sellers", "on_sale"]:
+                if prod_id in self.products_data[list_name]:
+                    self.products_data[list_name].remove(prod_id)
             
-            input(self.term.center("Press Enter to continue..."))
+            self.save_json(self.products_file, self.products_data)
+            
+            # Show success message
+            with self.term.fullscreen():
+                print(self.term.clear)
+                print(self.term.center(self.term.green(f"Product '{selected_product['name']}' has been deleted successfully!")))
+                input(self.term.center("Press Enter to continue..."))
     
     def list_products_by_category(self):
+        # Create a menu for category selection
+        category_options = [f"{category['name']} ({len(category['products'])} products)" for category in self.products_data["categories"]]
+        category_options.append("All Categories")
+        category_options.append("Back to Admin Menu")
+        
+        category_menu = Menu("Product Categories", category_options)
+        cat_choice = category_menu.display()
+        
+        if cat_choice is None or cat_choice == len(category_options) - 1:  # Back option or 'q' pressed
+            return
+            
+        # Display products in the selected category or all categories
         with self.term.fullscreen():
             print(self.term.clear)
-            print(self.term.move_y(2) + self.term.center(self.term.bold("Product Categories")))
-            print()
             
-            for i, category in enumerate(self.products_data["categories"]):
-                print(self.term.center(f"{i+1}. {category['name']} ({len(category['products'])} products)"))
-            
-            print(self.term.center("Enter category number (or 'all'): "), end="")
-            cat_choice = input()
-            
-            print(self.term.clear)
-            
-            if cat_choice.lower() == "all":
+            if cat_choice == len(category_options) - 2:  # All Categories option
+                # Display all products by category
+                product_list = []
                 for category in self.products_data["categories"]:
-                    print(self.term.bold(self.term.center(f"\n--- {category['name']} ---")))
+                    product_list.append(f"--- {category['name']} ---")
                     for product in category["products"]:
-                        print(self.term.center(f"{product['id']}: {product['name']} - ${product['price']} (Stock: {product['stock']})"))
+                        product_list.append(f"{product['id']}: {product['name']} - ${product['price']} (Stock: {product['stock']})")
+                    product_list.append("")  # Add empty line between categories
+                
+                product_list.append("Back to Categories")
+                product_menu = Menu("All Products", product_list)
+                product_menu.display()  # Just display the menu and return on any selection
             else:
-                try:
-                    cat_idx = int(cat_choice) - 1
-                    if cat_idx < 0 or cat_idx >= len(self.products_data["categories"]):
-                        print(self.term.center(self.term.red("Invalid category number")))
-                    else:
-                        category = self.products_data["categories"][cat_idx]
-                        print(self.term.bold(self.term.center(f"\n--- {category['name']} ---")))
-                        for product in category["products"]:
-                            print(self.term.center(f"{product['id']}: {product['name']} - ${product['price']} (Stock: {product['stock']})"))
-                except ValueError:
-                    print(self.term.center(self.term.red("Invalid input. Please enter a number or 'all'")))
-            
-            input(self.term.center("\nPress Enter to continue..."))
+                # Display products for a specific category
+                category = self.products_data["categories"][cat_choice]
+                
+                if not category["products"]:
+                    print(self.term.center(self.term.red("No products available in this category")))
+                    input(self.term.center("Press Enter to continue..."))
+                    return
+                
+                product_options = [f"{p['id']}: {p['name']} - ${p['price']} (Stock: {p['stock']})" 
+                                for p in category["products"]]
+                product_options.append("Back to Categories")
+                
+                product_menu = Menu(f"{category['name']} Products", product_options)
+                product_menu.display()  # Just display the menu and return on any selection
     
     def update_product(self):
+        # Get all products from all categories
+        all_products = []
+        for category in self.products_data["categories"]:
+            for product in category["products"]:
+                all_products.append({
+                    "id": product["id"],
+                    "name": product["name"],
+                    "category_name": category["name"],
+                    "category_index": self.products_data["categories"].index(category),
+                    "product_index": category["products"].index(product),
+                    "price": product["price"],
+                    "stock": product["stock"]
+                })
+        
+        if not all_products:
+            with self.term.fullscreen():
+                print(self.term.clear)
+                print(self.term.center(self.term.red("No products available to update.")))
+                input(self.term.center("Press Enter to continue..."))
+            return
+        
+        # Create menu options for product selection
+        product_options = [f"{p['id']}: {p['name']} - ${p['price']} (Stock: {p['stock']}, Category: {p['category_name']})" 
+                          for p in all_products]
+        product_options.append("Back to Admin Menu")
+        
+        update_menu = Menu("Select a Product to Update", product_options)
+        prod_idx = update_menu.display()
+        
+        if prod_idx is None or prod_idx == len(product_options) - 1:  # Back option or 'q' pressed
+            return
+        
+        # Get selected product information
+        selected_product = all_products[prod_idx]
+        category_index = selected_product["category_index"]
+        product_index = selected_product["product_index"]
+        product = self.products_data["categories"][category_index]["products"][product_index]
+        
+        # Menu for selecting what to update
+        update_options = [
+            "Name", 
+            "Description", 
+            "Price", 
+            "Stock", 
+            "Tags", 
+            "Back to Product Selection"
+        ]
+        
+        update_field_menu = Menu(f"Update Product: {product['name']}", update_options)
+        update_choice = update_field_menu.display()
+        
+        if update_choice is None or update_choice == 5:  # Back option or 'q' pressed
+            return
+        
+        # Update the selected field
         with self.term.fullscreen():
             print(self.term.clear)
-            print(self.term.move_y(2) + self.term.center(self.term.bold("Update Product")))
+            field_name = update_options[update_choice]
+            print(self.term.move_y(2) + self.term.center(self.term.bold(f"Update {field_name}")))
             print()
             
-            print(self.term.center("Enter Product ID to update: "), end="")
-            prod_id = input()
-            found = False
-            
-            for category in self.products_data["categories"]:
-                for i, product in enumerate(category["products"]):
-                    if product["id"] == prod_id:
-                        found = True
-                        print(self.term.center(self.term.bold(f"\nUpdating product: {product['name']}")))
-                        print(self.term.center("What would you like to update?"))
-                        
-                        update_menu = Menu("Update Options", 
-                                          ["Name", "Description", "Price", "Stock", "Tags", "Cancel"])
-                        update_choice = update_menu.display()
-                        
-                        if update_choice is None or update_choice == 5:  # Cancel option or 'q' pressed
-                            return
-                        
-                        with self.term.fullscreen():
-                            print(self.term.clear)
-                            
-                            if update_choice == 0:  # Name
-                                print(self.term.center(f"Current name: {product['name']}"))
-                                print(self.term.center("New name: "), end="")
-                                new_name = input()
-                                product["name"] = new_name
-                            elif update_choice == 1:  # Description
-                                print(self.term.center(f"Current description: {product['description']}"))
-                                print(self.term.center("New description: "), end="")
-                                new_desc = input()
-                                product["description"] = new_desc
-                            elif update_choice == 2:  # Price
-                                print(self.term.center(f"Current price: ${product['price']}"))
-                                print(self.term.center("New price: "), end="")
-                                try:
-                                    new_price = float(input())
-                                    product["price"] = new_price
-                                except ValueError:
-                                    print(self.term.center(self.term.red("Invalid price. No changes made.")))
-                                    input(self.term.center("Press Enter to continue..."))
-                                    return
-                            elif update_choice == 3:  # Stock
-                                print(self.term.center(f"Current stock: {product['stock']}"))
-                                print(self.term.center("New stock quantity: "), end="")
-                                try:
-                                    new_stock = int(input())
-                                    product["stock"] = new_stock
-                                except ValueError:
-                                    print(self.term.center(self.term.red("Invalid stock. No changes made.")))
-                                    input(self.term.center("Press Enter to continue..."))
-                                    return
-                            elif update_choice == 4:  # Tags
-                                print(self.term.center(f"Current tags: {', '.join(product['tags'])}"))
-                                print(self.term.center("New tags (comma-separated): "), end="")
-                                new_tags = input()
-                                product["tags"] = [tag.strip() for tag in new_tags.split(",")]
-                            
-                            self.save_json(self.products_file, self.products_data)
-                            print(self.term.center(self.term.green("Product updated successfully!")))
-                            input(self.term.center("Press Enter to continue..."))
-                            break
-                if found:
-                    break
-            
-            if not found:
-                print(self.term.center(self.term.red(f"Product with ID '{prod_id}' not found!")))
-                input(self.term.center("Press Enter to continue..."))
+            if update_choice == 0:  # Name
+                print(self.term.center(f"Current name: {product['name']}"))
+                print(self.term.center("New name: "), end="")
+                new_name = input()
+                product["name"] = new_name
+            elif update_choice == 1:  # Description
+                print(self.term.center(f"Current description: {product['description']}"))
+                print(self.term.center("New description: "), end="")
+                new_desc = input()
+                product["description"] = new_desc
+            elif update_choice == 2:  # Price
+                print(self.term.center(f"Current price: ${product['price']}"))
+                print(self.term.center("New price: "), end="")
+                try:
+                    new_price = float(input())
+                    product["price"] = new_price
+                except ValueError:
+                    print(self.term.center(self.term.red("Invalid price. No changes made.")))
+                    input(self.term.center("Press Enter to continue..."))
+                    return
+            elif update_choice == 3:  # Stock
+                print(self.term.center(f"Current stock: {product['stock']}"))
+                print(self.term.center("New stock quantity: "), end="")
+                try:
+                    new_stock = int(input())
+                    product["stock"] = new_stock
+                except ValueError:
+                    print(self.term.center(self.term.red("Invalid stock. No changes made.")))
+                    input(self.term.center("Press Enter to continue..."))
+                    return
+            elif update_choice == 4:  # Tags
+                print(self.term.center(f"Current tags: {', '.join(product['tags'])}"))
+                print(self.term.center("New tags (comma-separated): "), end="")
+                new_tags = input()
+                product["tags"] = [tag.strip() for tag in new_tags.split(",")]
+        
+        # Save changes
+        self.save_json(self.products_file, self.products_data)
+        
+        # Show success message
+        with self.term.fullscreen():
+            print(self.term.clear)
+            print(self.term.center(self.term.green(f"Product updated successfully!")))
+            input(self.term.center("Press Enter to continue..."))
 
     def customer_menu(self):
         cart = Cart()
