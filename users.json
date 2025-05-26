@@ -68,6 +68,19 @@
         "manage_products",
         "view_reports"
       ]
+    },
+    {
+      "id": "admin3",
+      "username": "abdul",
+      "password": "123456789",
+      "email": "abdul@email.com",
+      "is_admin": true,
+      "created_at": "2025-05-26T00:00:00Z",
+      "last_login": null,
+      "permissions": [
+        "manage_products",
+        "view_reports"
+      ]
     }
   ]
 }

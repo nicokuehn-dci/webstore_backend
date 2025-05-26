@@ -202,19 +202,22 @@ class Menu:
                         print(self.term.center(f" {option} "))
                 
                 print()
-                print(self.term.center("(Use ↑/↓ arrow keys to navigate, Enter to select, q to quit)"))
+                print(self.term.center("(Use ↑/↓ arrow keys, j/k, or w/s to navigate, Enter to select, q to quit)"))
                 
-                # Handle keyboard input with improved key detection
+                # Handle keyboard input with improved key detection for multiple environments
                 key = self.term.inkey(timeout=0.5)
                 
-                # Handle various key formats for better compatibility
-                if key.name == 'KEY_UP' or key.code == 259 or key == 'k':
+                # Enhanced multi-key support for better compatibility across platforms and terminals
+                if (key.name == 'KEY_UP' or key.code == 259 or key == 'k' or key == 'K' or 
+                    key == 'w' or key == 'W' or key.code == 65 or key.code == 450):
                     self.current_option = (self.current_option - 1) % len(self.options)
-                elif key.name == 'KEY_DOWN' or key.code == 258 or key == 'j':
+                elif (key.name == 'KEY_DOWN' or key.code == 258 or key == 'j' or key == 'J' or 
+                      key == 's' or key == 'S' or key.code == 66 or key.code == 456):
                     self.current_option = (self.current_option + 1) % len(self.options)
-                elif key.name == 'KEY_ENTER' or key == '\n' or key == '\r':
+                elif (key.name == 'KEY_ENTER' or key == '\n' or key == '\r' or 
+                      key.code == 10 or key.code == 13 or key == ' '):
                     return self.current_option
-                elif key.lower() == 'q':
+                elif key.lower() == 'q' or key.name == 'KEY_ESCAPE' or key.code == 27:
                     return None
                 
                 # Small delay to prevent cpu usage spikes
@@ -354,11 +357,12 @@ class CLIController:
             input(self.term.center("Press Enter to continue..."))
 
     def admin_menu(self):
+        """Main admin menu with hierarchical submenus"""
         # Show quick help on first login
         self.show_admin_help()
         
         while True:
-            # Main admin menu with categorized options
+            # Main admin menu with categorized options and emoji icons
             admin_menu = Menu(f"Admin Menu - {self.current_user.username}", [
                 "📦 Product Management",
                 "📊 Reports & Statistics",
@@ -381,7 +385,7 @@ class CLIController:
                 self.show_admin_help()
     
     def product_management_menu(self):
-        """Submenu for product management options"""
+        """Submenu for product management options with improved organization"""
         while True:
             product_menu = Menu("Product Management", [
                 "➕ Add New Product",
@@ -639,7 +643,7 @@ class CLIController:
                 input(self.term.center("Press Enter to continue..."))
     
     def manage_featured_products(self):
-        """Manage featured, new arrivals, best sellers, and on-sale products"""
+        """Manage featured, new arrivals, best sellers, and on-sale products with improved menu structure"""
         while True:
             featured_menu = Menu("Manage Featured Products", [
                 "⭐ Featured Products",
@@ -654,13 +658,14 @@ class CLIController:
                 return
                 
             list_types = ["featured_products", "new_arrivals", "best_sellers", "on_sale"]
+            list_names = ["Featured Products", "New Arrivals", "Best Sellers", "On Sale"]
             list_type = list_types[choice]
-            list_name = ["Featured Products", "New Arrivals", "Best Sellers", "On Sale"][choice]
+            list_name = list_names[choice]
             
             self.edit_product_list(list_type, list_name)
     
     def edit_product_list(self, list_type, list_name):
-        """Edit a specific product list (featured, new arrivals, etc.)"""
+        """Edit a specific product list (featured, new arrivals, etc.) with improved menu structure"""
         while True:
             # Get current products in the list
             product_ids = self.products_data[list_type]
@@ -676,11 +681,14 @@ class CLIController:
                         "stock": product["stock"]
                     })
             
+            # Show count of products in the list as part of the menu title
+            count_info = f"({len(current_products)} products)"
+            
             # Create menu options
             edit_options = [
-                "👁️ View Current Products",
-                "➕ Add Product to List",
-                "❌ Remove Product from List",
+                f"👁️ View Current {list_name} {count_info}",
+                f"➕ Add Product to {list_name}",
+                f"❌ Remove Product from {list_name}",
                 "⬅️ Back to Featured Management"
             ]
             
@@ -796,31 +804,59 @@ class CLIController:
     
     def show_reports_menu(self):
         """Display reports and statistics menu"""
-        with self.term.fullscreen():
-            print(self.term.clear)
-            print(self.term.move_y(2) + self.term.center(self.term.bold("Reports & Statistics")))
-            print()
-            print(self.term.center(self.term.yellow("This feature is coming soon!")))
-            print(self.term.center("Future reports will include:"))
-            print(self.term.center("- Sales reports"))
-            print(self.term.center("- Inventory status"))
-            print(self.term.center("- Customer activity"))
-            print(self.term.center("- Popular products"))
-            input(self.term.center("\nPress Enter to return to Admin Menu..."))
+        while True:
+            report_menu = Menu("Reports & Statistics", [
+                "📊 Sales Summary",
+                "📦 Inventory Status",
+                "👤 Customer Activity",
+                "⭐ Popular Products",
+                "⬅️ Back to Admin Menu"
+            ])
+            choice = report_menu.display()
+            
+            if choice is None or choice == 4:  # Back option or 'q' pressed
+                return
+                
+            # Currently all report options show the same placeholder
+            with self.term.fullscreen():
+                print(self.term.clear)
+                print(self.term.move_y(2) + self.term.center(self.term.bold("Reports & Statistics")))
+                print()
+                print(self.term.center(self.term.yellow("This feature is coming soon!")))
+                print(self.term.center("Future reports will include:"))
+                print(self.term.center("- Sales reports"))
+                print(self.term.center("- Inventory status"))
+                print(self.term.center("- Customer activity"))
+                print(self.term.center("- Popular products"))
+                input(self.term.center("\nPress Enter to return to Reports Menu..."))
     
     def settings_menu(self):
         """Display settings menu"""
-        with self.term.fullscreen():
-            print(self.term.clear)
-            print(self.term.move_y(2) + self.term.center(self.term.bold("Settings")))
-            print()
-            print(self.term.center(self.term.yellow("This feature is coming soon!")))
-            print(self.term.center("Future settings will include:"))
-            print(self.term.center("- User profile settings"))
-            print(self.term.center("- Application preferences"))
-            print(self.term.center("- Theme customization"))
-            print(self.term.center("- Backup and restore"))
-            input(self.term.center("\nPress Enter to return to Admin Menu..."))
+        while True:
+            settings_menu = Menu("Settings", [
+                "👤 User Profiles",
+                "🎨 Interface Preferences",
+                "🔐 Security Settings",
+                "💾 Backup & Restore",
+                "⬅️ Back to Admin Menu"
+            ])
+            choice = settings_menu.display()
+            
+            if choice is None or choice == 4:  # Back option or 'q' pressed
+                return
+                
+            # Currently all settings options show the same placeholder
+            with self.term.fullscreen():
+                print(self.term.clear)
+                print(self.term.move_y(2) + self.term.center(self.term.bold("Settings")))
+                print()
+                print(self.term.center(self.term.yellow("This feature is coming soon!")))
+                print(self.term.center("Future settings will include:"))
+                print(self.term.center("- User profile settings"))
+                print(self.term.center("- Application preferences"))
+                print(self.term.center("- Theme customization"))
+                print(self.term.center("- Backup and restore"))
+                input(self.term.center("\nPress Enter to return to Settings Menu..."))
     
     def add_product(self):
         # First collect basic product information
@@ -1490,9 +1526,17 @@ class CLIController:
             
             # Main menu navigation
             print(self.term.bold(self.term.center("🧭 Navigation:")))
-            print(self.term.center("- Use ↑/↓ arrow keys to navigate through menu options"))
-            print(self.term.center("- Press Enter to select an option"))
-            print(self.term.center("- Press 'q' to go back or quit a menu"))
+            print(self.term.center("- Use ↑/↓ arrow keys, j/k, or w/s to navigate through menu options"))
+            print(self.term.center("- Press Enter or Space to select an option"))
+            print(self.term.center("- Press 'q' or ESC to go back or quit a menu"))
+            print()
+            
+            # Admin menu structure help
+            print(self.term.bold(self.term.center("📋 Admin Menu Structure:")))
+            print(self.term.center("- Product Management: All product-related operations"))
+            print(self.term.center("- Reports & Statistics: View sales and inventory reports"))
+            print(self.term.center("- Settings: Configure application settings"))
+            print(self.term.center("- Help: Display this help screen"))
             print()
             
             # Product Management help
@@ -1502,6 +1546,7 @@ class CLIController:
             print(self.term.center("- Update Product: Modify existing product details"))
             print(self.term.center("- Delete Product: Remove products from inventory"))
             print(self.term.center("- List Products: Browse products by category"))
+            print(self.term.center("- Search Products: Find products by name, ID or tags"))
             print(self.term.center("- Featured Products: Manage special product lists"))
             print()
             
@@ -1511,6 +1556,7 @@ class CLIController:
             print(self.term.center("- Use comma-separated tags (e.g., 'premium, sale, new')"))
             print(self.term.center("- Keep inventory up to date by regularly checking stock levels"))
             print(self.term.center("- Feature your best products to increase visibility"))
+            print(self.term.center("- All menus support keyboard navigation with various keys"))
             print()
             
             # Help message
