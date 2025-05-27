@@ -100,16 +100,17 @@ def main():
     print()
     print(term.center("Starting application..."))
     
-    # Show loading progress bar
+    # Show loading progress bar (5 seconds)
     width = term.width
     bar_width = 40
     left_padding = (width - bar_width) // 2
+    sleep_time = 5.0 / bar_width  # Distribute 5 seconds across all steps
     print()
     for i in range(bar_width + 1):
         progress = '$' * i + ' ' * (bar_width - i)
         percentage = int((i / bar_width) * 100)
         print(term.move_up(1) + ' ' * left_padding + f'[{progress}] {percentage}%')
-        time.sleep(0.02)  # Small delay for visual effect
+        time.sleep(sleep_time)  # Adjusted delay for 5 second total
     print()
     
     # Check if git is initialized
