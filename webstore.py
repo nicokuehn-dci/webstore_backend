@@ -54,6 +54,9 @@ Example:
             sys.exit(1)
 
 def main():
+    # Get the current directory
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    
     # Check Python version
     check_python_version()
     
@@ -62,6 +65,12 @@ def main():
     
     # Setup environment (requirements, venv, etc.)
     setup_environment()
+    
+    # Check if we're running in the virtual environment
+    venv_python = os.path.join(current_dir, 'venv', 'bin', 'python')
+    if os.path.exists(venv_python) and sys.executable != venv_python and not os.environ.get('VENV_PYTHON_RUNNING'):
+        os.environ['VENV_PYTHON_RUNNING'] = '1'
+        os.execv(venv_python, [venv_python] + sys.argv)
     
     # Initialize terminal
     term = Terminal()
