@@ -87,13 +87,14 @@ def main():
     # Initialize terminal
     term = Terminal()
     print(term.clear)
-    print(term.move_y(2) + term.center(term.bold(f"WebStore App v{VERSION}")))
-    print(term.center("Interactive CLI Menu System"))
-    print(term.center("-------------------------"))
+    # Title with orange background and black text
+    print(term.move_y(2) + term.center(term.black_on_orange(term.bold(f" WebStore App v{VERSION} "))))
+    print(term.center(term.orange("Interactive CLI Menu System")))
+    print(term.center(term.orange("-------------------------")))
     print()
     # Display credits as a watermark
-    print(term.center("Developed by:"))
-    print(term.center("Nico Kuehn · Alexandra Adamchyk · Abdul Rahman Dahhan"))
+    print(term.center(term.orange("Developed by:")))
+    print(term.center(term.orange("Nico Kuehn · Alexandra Adamchyk · Abdul Rahman Dahhan")))
     print()
     print(term.center("Starting application..."))
     print()
