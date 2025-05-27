@@ -8,8 +8,20 @@ Features an interactive menu system with arrow key navigation and colored UI.
 Usage:
     ./webstore.py
 
-Author: Nico Kuehn
+Authors:
+    Nico Kuehn <nico.kuehn@dci.education>
+    Alexandra Adamchyk <alexandra.adamchyk@dci.education>
+    Abdul Rahman Dahhan <abdul.dahhan@dci.education>
+
+Contributors:
+    - Added enhanced cart functionality with tax and discount system
+    - Improved virtual environment handling
+    - Added full-featured product management system
+    - Implemented hierarchical menu navigation
+    - Enhanced user authentication system
+
 Date: May 27, 2025
+License: MIT License
 """
 
 import os
