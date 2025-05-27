@@ -48,3 +48,9 @@ Thumbs.db
 *.sqlite3
 .coverage
 htmlcov/
+
+# Application data files
+users.json
+admins.json
+products.json
+backup/*.bak
