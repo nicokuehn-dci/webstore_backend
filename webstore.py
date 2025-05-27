@@ -150,7 +150,7 @@ def main():
     # Title with orange background and black text
     print(term.move(0, 2) + term.center(term.black_on_orange(term.bold(f" WebStore App v{VERSION} "))))
     print()
-    print(term.center(term.orange(term.bold(term.height_and_width(2, 2, "Interactive CLI Menu System")))))
+    print(term.center(term.orange(term.bold("Interactive CLI Menu System"))))
     print(term.center(term.orange("-------------------------")))
     print()
     # Display credits as a watermark
