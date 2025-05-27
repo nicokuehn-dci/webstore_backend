@@ -27,6 +27,7 @@ License: MIT License
 import os
 import sys
 import subprocess
+import time
 from blessed import Terminal
 
 from src.utils.setup import check_python_version, setup_environment
@@ -98,6 +99,17 @@ def main():
     print(term.center(term.orange("Nico Kuehn · Alexandra Adamchyk · Abdul Rahman Dahhan")))
     print()
     print(term.center("Starting application..."))
+    
+    # Show loading progress bar
+    width = term.width
+    bar_width = 40
+    left_padding = (width - bar_width) // 2
+    print()
+    for i in range(bar_width + 1):
+        progress = '$' * i + ' ' * (bar_width - i)
+        percentage = int((i / bar_width) * 100)
+        print(term.move_up(1) + ' ' * left_padding + f'[{progress}] {percentage}%')
+        time.sleep(0.02)  # Small delay for visual effect
     print()
     
     # Check if git is initialized
