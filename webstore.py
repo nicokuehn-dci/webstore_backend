@@ -67,7 +67,7 @@ def setup_venv_and_dependencies():
         try:
             print("Checking dependencies in virtual environment...")
             # Get list of installed packages
-            result = subprocess.run([sys.executable, '-m', 'pip', 'freeze'], capture_output=True, text=True)
+            result = subprocess.run([venv_python, '-m', 'pip', 'freeze'], capture_output=True, text=True)
             installed_packages = {line.split('==')[0].lower() for line in result.stdout.splitlines()}
             
             # Read requirements
@@ -78,7 +78,7 @@ def setup_venv_and_dependencies():
             missing_packages = required_packages - installed_packages
             if missing_packages:
                 print(f"Installing missing dependencies in virtual environment: {', '.join(missing_packages)}")
-                subprocess.run([sys.executable, '-m', 'pip', 'install', '-r', requirements_file], check=True)
+                subprocess.run([venv_python, '-m', 'pip', 'install', '-r', requirements_file], check=True)
                 print("Dependencies installed successfully in virtual environment.")
             else:
                 print("All dependencies are already installed in virtual environment.")
@@ -174,7 +174,6 @@ def main():
     print()
     
     # Check if git is initialized
-    current_dir = os.path.dirname(os.path.abspath(__file__))
     if not os.path.exists(os.path.join(current_dir, '.git')):
         print(term.center(term.yellow("Git repository not initialized.")))
         print(term.center(term.yellow("Run 'git init' to create a new repository.")))
