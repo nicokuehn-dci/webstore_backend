@@ -91,6 +91,10 @@ def main():
     print(term.center("Interactive CLI Menu System"))
     print(term.center("-------------------------"))
     print()
+    # Display credits as a watermark
+    print(term.center(term.dim("Developed by:")))
+    print(term.center(term.dim("Nico Kuehn · Alexandra Adamchyk · Abdul Rahman Dahhan")))
+    print()
     print(term.center("Starting application..."))
     print()
     
