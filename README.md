@@ -1,10 +1,10 @@
 # WebStore App
 
-A comprehensive e-commerce backend system with a CLI interface, featuring user management, product catalog, order processing, and secure payment integration.
+A Python-based command-line interface (CLI) e-commerce application featuring an interactive menu system, comprehensive product management, and secure user authentication.
 
 ## Overview
 
-This project combines a powerful backend API with an interactive CLI interface for managing an e-commerce platform. It provides a complete solution for both administrators and customers, with features ranging from user authentication to order processing.
+This project implements a feature-rich e-commerce platform using Python's blessed library for terminal UI. It provides an intuitive, color-coded interface with smooth navigation, real-time cart management, and a sophisticated product catalog system. The application uses JSON-based data storage for maintaining user, product, and transaction data.
 
 ## Application Screenshots
 
@@ -62,20 +62,21 @@ This project combines a powerful backend API with an interactive CLI interface f
 - Error handling
 - Session management
 
-## Technical Stack
+## Technical Implementation
 
-### Backend Core
-- Python 3.6+
-- Virtual Environment
-- JSON-based data storage
-- MVC architecture
+### Core Technology
+- Python 3.6+ with virtual environment management
+- MVC (Model-View-Controller) architecture
+- JSON-based persistent storage
+- Object-oriented design patterns
 
-### User Interface
-- Blessed terminal interface
-- Interactive menus
-- Color-coded UI elements
-- Progress indicators
+### Terminal Interface
+- Blessed library for advanced terminal manipulation
+- Interactive arrow-key navigation
+- Color-coded UI elements (orange theme)
+- Dynamic progress indicators
 - Responsive terminal layouts
+- Real-time display updates
 
 ### Dependencies
 - blessed: Terminal interface
