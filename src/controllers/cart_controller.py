@@ -162,5 +162,6 @@ class CartController:
         self.cart.clear()
         
         return True, f"Order completed successfully. Total amount: €{summary['final']:.2f}"
+    
 
 
