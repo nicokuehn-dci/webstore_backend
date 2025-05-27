@@ -6,6 +6,10 @@ Handles user authentication, registration, and session management.
 
 import json
 import os
+import sys
+
+# Add the project root directory to Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from src.models.user import User
 from src.views.menu import Menu
