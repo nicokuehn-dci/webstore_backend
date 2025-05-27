@@ -76,14 +76,20 @@ def main():
     # Parse command-line arguments
     parse_args()
     
-    # Setup environment (requirements, venv, etc.)
+    # First, check and activate virtual environment
+    venv_python = os.path.join(current_dir, 'venv', 'bin', 'python')
+    if os.path.exists(venv_python) and sys.executable != venv_python and not os.environ.get('VENV_PYTHON_RUNNING'):
+        os.environ['VENV_PYTHON_RUNNING'] = '1'
+        os.execv(venv_python, [venv_python] + sys.argv)
+    
+    # Now that we're in the venv, setup environment
     setup_environment()
     
     # Check if requirements.txt exists and install dependencies
     requirements_file = os.path.join(current_dir, 'requirements.txt')
     if os.path.exists(requirements_file):
         try:
-            print("Checking dependencies...")
+            print("Checking dependencies in virtual environment...")
             # Get list of installed packages
             result = subprocess.run([sys.executable, '-m', 'pip', 'freeze'], capture_output=True, text=True)
             installed_packages = {line.split('==')[0].lower() for line in result.stdout.splitlines()}
@@ -95,11 +101,11 @@ def main():
             # Find missing packages
             missing_packages = required_packages - installed_packages
             if missing_packages:
-                print(f"Installing missing dependencies: {', '.join(missing_packages)}")
+                print(f"Installing missing dependencies in virtual environment: {', '.join(missing_packages)}")
                 subprocess.run([sys.executable, '-m', 'pip', 'install', '-r', requirements_file], check=True)
-                print("Dependencies installed successfully.")
+                print("Dependencies installed successfully in virtual environment.")
             else:
-                print("All dependencies are already installed.")
+                print("All dependencies are already installed in virtual environment.")
         except subprocess.CalledProcessError as e:
             print(f"Error installing dependencies: {e}")
             sys.exit(1)
@@ -108,12 +114,6 @@ def main():
             sys.exit(1)
     else:
         print("Warning: requirements.txt not found!")
-    
-    # Check if we're running in the virtual environment
-    venv_python = os.path.join(current_dir, 'venv', 'bin', 'python')
-    if os.path.exists(venv_python) and sys.executable != venv_python and not os.environ.get('VENV_PYTHON_RUNNING'):
-        os.environ['VENV_PYTHON_RUNNING'] = '1'
-        os.execv(venv_python, [venv_python] + sys.argv)
     
     # Initialize terminal
     term = Terminal()
