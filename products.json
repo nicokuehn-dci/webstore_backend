@@ -11,7 +11,7 @@
           "name": "Smartphone X",
           "description": "Latest smartphone with advanced features",
           "price": 899.99,
-          "stock": 50,
+          "stock": 49,
           "image_url": "smartphone_x.jpg",
           "specifications": {
             "display": "6.5 inch OLED",
@@ -191,7 +191,7 @@
           "name": "Women's Denim Jeans",
           "description": "Classic fit denim jeans",
           "price": 49.99,
-          "stock": 80,
+          "stock": 79,
           "image_url": "jeans.jpg",
           "specifications": {
             "material": "Denim",
