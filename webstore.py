@@ -79,6 +79,36 @@ def main():
     # Setup environment (requirements, venv, etc.)
     setup_environment()
     
+    # Check if requirements.txt exists and install dependencies
+    requirements_file = os.path.join(current_dir, 'requirements.txt')
+    if os.path.exists(requirements_file):
+        try:
+            print("Checking dependencies...")
+            # Get list of installed packages
+            result = subprocess.run([sys.executable, '-m', 'pip', 'freeze'], capture_output=True, text=True)
+            installed_packages = {line.split('==')[0].lower() for line in result.stdout.splitlines()}
+            
+            # Read requirements
+            with open(requirements_file, 'r') as f:
+                required_packages = {line.split('==')[0].lower() for line in f.readlines() if line.strip() and not line.startswith('#')}
+            
+            # Find missing packages
+            missing_packages = required_packages - installed_packages
+            if missing_packages:
+                print(f"Installing missing dependencies: {', '.join(missing_packages)}")
+                subprocess.run([sys.executable, '-m', 'pip', 'install', '-r', requirements_file], check=True)
+                print("Dependencies installed successfully.")
+            else:
+                print("All dependencies are already installed.")
+        except subprocess.CalledProcessError as e:
+            print(f"Error installing dependencies: {e}")
+            sys.exit(1)
+        except Exception as e:
+            print(f"Error checking dependencies: {e}")
+            sys.exit(1)
+    else:
+        print("Warning: requirements.txt not found!")
+    
     # Check if we're running in the virtual environment
     venv_python = os.path.join(current_dir, 'venv', 'bin', 'python')
     if os.path.exists(venv_python) and sys.executable != venv_python and not os.environ.get('VENV_PYTHON_RUNNING'):
@@ -89,9 +119,9 @@ def main():
     term = Terminal()
     print(term.clear)
     # Title with orange background and black text
-    print(term.move_y(2) + term.center(term.black_on_orange(term.bold(f" WebStore App v{VERSION} "))))
+    print(term.move(0, 2) + term.center(term.black_on_orange(term.bold(f" WebStore App v{VERSION} "))))
     print()
-    print(term.center(term.orange("Interactive CLI Menu System")))
+    print(term.center(term.orange(term.bold(term.height_and_width(2, 2, "Interactive CLI Menu System")))))
     print(term.center(term.orange("-------------------------")))
     print()
     # Display credits as a watermark
@@ -99,6 +129,7 @@ def main():
     print(term.center(term.orange("Nico Kuehn · Alexandra Adamchyk · Abdul Rahman Dahhan")))
     print()
     print(term.center("Starting application..."))
+    print()
     
     # Show loading progress bar (5 seconds)
     width = term.width
