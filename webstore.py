@@ -35,11 +35,31 @@ def setup_venv_and_dependencies():
     """Setup virtual environment and install dependencies."""
     current_dir = os.path.dirname(os.path.abspath(__file__))
     
-    # First, check and activate virtual environment
-    venv_python = os.path.join(current_dir, 'venv', 'bin', 'python')
+    # First, ensure virtual environment exists
+    venv_path = os.path.join(current_dir, 'venv')
+    venv_python = os.path.join(venv_path, 'bin', 'python')
+    
+    if not os.path.exists(venv_path):
+        print("Creating virtual environment...")
+        try:
+            subprocess.run([sys.executable, '-m', 'venv', venv_path], check=True)
+            print("Virtual environment created successfully.")
+        except subprocess.CalledProcessError as e:
+            print(f"Error creating virtual environment: {e}")
+            sys.exit(1)
+    
+    # Check and activate virtual environment
     if os.path.exists(venv_python) and sys.executable != venv_python and not os.environ.get('VENV_PYTHON_RUNNING'):
+        print("Activating virtual environment...")
         os.environ['VENV_PYTHON_RUNNING'] = '1'
         os.execv(venv_python, [venv_python] + sys.argv)
+    
+    # Ensure pip is up to date in the virtual environment
+    try:
+        subprocess.run([venv_python, '-m', 'pip', 'install', '--upgrade', 'pip'], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error upgrading pip: {e}")
+        sys.exit(1)
     
     # Check if requirements.txt exists and install dependencies
     requirements_file = os.path.join(current_dir, 'requirements.txt')
