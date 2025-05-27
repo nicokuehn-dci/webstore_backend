@@ -1,0 +1,86 @@
+{
+  "users": [
+    {
+      "id": "user1",
+      "username": "john_doe",
+      "password": "hashed_password_1",
+      "email": "john@example.com",
+      "is_admin": false,
+      "created_at": "2025-01-15T10:30:00Z",
+      "last_login": "2025-05-25T14:22:10Z",
+      "shipping_address": {
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "CA",
+        "zip": "12345",
+        "country": "USA"
+      },
+      "order_history": [
+        "order123",
+        "order456"
+      ]
+    },
+    {
+      "id": "user2",
+      "username": "jane_smith",
+      "password": "hashed_password_2",
+      "email": "jane@example.com",
+      "is_admin": false,
+      "created_at": "2025-02-03T09:15:00Z",
+      "last_login": "2025-05-26T08:10:20Z",
+      "shipping_address": {
+        "street": "456 Oak Ave",
+        "city": "Other City",
+        "state": "NY",
+        "zip": "67890",
+        "country": "USA"
+      },
+      "order_history": [
+        "order789"
+      ]
+    }
+  ],
+  "admins": [
+    {
+      "id": "admin1",
+      "username": "admin_user",
+      "password": "hashed_admin_password",
+      "email": "admin@example.com",
+      "is_admin": true,
+      "created_at": "2025-01-01T08:00:00Z",
+      "last_login": "2025-05-26T09:30:45Z",
+      "permissions": [
+        "manage_products",
+        "manage_users",
+        "view_reports",
+        "process_orders"
+      ]
+    },
+    {
+      "id": "admin2",
+      "username": "nico",
+      "password": "123456789",
+      "email": "nico@email.net",
+      "is_admin": true,
+      "created_at": "2025-05-26T00:00:00Z",
+      "last_login": "2025-05-26T00:00:00Z",
+      "permissions": [
+        "manage_products",
+        "view_reports"
+      ]
+    },
+    {
+      "id": "admin3",
+      "username": "abdul",
+      "password": "123456789",
+      "email": "abdul@email.com",
+      "is_admin": true,
+      "created_at": "2025-05-26T00:00:00Z",
+      "last_login": null,
+      "permissions": [
+        "manage_products",
+        "view_reports"
+      ]
+    }
+  ]
+}

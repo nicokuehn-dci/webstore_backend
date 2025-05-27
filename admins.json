@@ -1,0 +1,58 @@
+{
+  "admins": [
+    {
+      "id": "admin1",
+      "username": "admin",
+      "password": "admin123",
+      "email": "admin@webstore.com",
+      "is_admin": true,
+      "permissions": [
+        "manage_products",
+        "view_reports"
+      ],
+      "created_at": "2025-05-26T00:00:00Z",
+      "last_login": null
+    },
+    {
+      "id": "admin2",
+      "username": "admin_user",
+      "password": "hashed_admin_password",
+      "email": "admin@example.com",
+      "is_admin": true,
+      "created_at": "2025-01-01T08:00:00Z",
+      "last_login": "2025-05-26T09:30:45Z",
+      "permissions": [
+        "manage_products",
+        "manage_users",
+        "view_reports",
+        "process_orders"
+      ]
+    },
+    {
+      "id": "admin3",
+      "username": "nico",
+      "password": "123456789",
+      "email": "nico@email.net",
+      "is_admin": true,
+      "created_at": "2025-05-26T00:00:00Z",
+      "last_login": "2025-05-26T00:00:00Z",
+      "permissions": [
+        "manage_products",
+        "view_reports"
+      ]
+    },
+    {
+      "id": "admin4",
+      "username": "abdul",
+      "password": "123456789",
+      "email": "abdul@email.com",
+      "is_admin": true,
+      "created_at": "2025-05-26T00:00:00Z",
+      "last_login": null,
+      "permissions": [
+        "manage_products",
+        "view_reports"
+      ]
+    }
+  ]
+}

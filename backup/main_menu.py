@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# filepath: /home/nico-kuehn-dci/Desktop/webstore-app/menu_cli.py
+# filepath: /home/nico-kuehn-dci/Desktop/webstore-app/main_menu.py
 """
 WebStore App - Interactive CLI Menu System
 -----------------------------------------
@@ -7,7 +7,7 @@ A command-line interface for managing products and users in a web store.
 Features an interactive menu system with arrow key navigation and colored UI.
 
 Usage:
-    ./menu_cli.py
+    ./main_menu.py
 
 Author: Nico Kuehn
 Date: May 26, 2025
@@ -17,6 +17,7 @@ import json
 import os
 import sys
 import subprocess
+import time
 
 # Check Python version
 if sys.version_info < (3, 6):
@@ -221,7 +222,6 @@ class Menu:
                     return None
                 
                 # Small delay to prevent cpu usage spikes
-                import time
                 time.sleep(0.05)
 
 class CLIController:

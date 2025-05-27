@@ -32,7 +32,7 @@ Features an interactive menu system with arrow key navigation and colored UI (or
 
 2. Run the application:
    ```
-   ./menu_cli.py
+   ./webstore.py
    ```
 
 The application will automatically:
@@ -46,7 +46,7 @@ The application will automatically:
 ### Command-line options
 
 ```
-./menu_cli.py [options]
+./webstore.py [options]
 
 Options:
   -h, --help     Show help message and exit
@@ -73,11 +73,29 @@ Options:
 
 ```
 webstore-app/
-├── menu_cli.py         # Main application file
+├── webstore.py         # Main entry point
+├── main_menu.py        # Legacy main file (kept for backward compatibility)
 ├── requirements.txt    # Python dependencies
 ├── .gitignore          # Git ignore file
 ├── products.json       # Product data
-└── users.json          # User data
+├── users.json          # User data
+├── admins.json         # Admin user data
+└── src/                # Source code directory
+    ├── controllers/    # MVC controllers
+    │   ├── auth_controller.py
+    │   ├── cart_controller.py
+    │   ├── main_controller.py
+    │   └── product_controller.py
+    ├── models/         # MVC models
+    │   ├── cart.py
+    │   ├── product.py
+    │   └── user.py
+    ├── utils/          # Utility functions
+    │   └── setup.py
+    └── views/          # MVC views
+        ├── admin_view.py
+        ├── customer_view.py
+        └── menu.py
 ```
 
 ## License

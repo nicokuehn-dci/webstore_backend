@@ -1,0 +1,14 @@
+{
+  "admins": [
+    {
+      "id": "admin1",
+      "username": "admin",
+      "password": "admin123",
+      "email": "admin@webstore.com",
+      "is_admin": true,
+      "permissions": ["manage_products", "view_reports"],
+      "created_at": "2025-05-26T00:00:00Z",
+      "last_login": null
+    }
+  ]
+}
