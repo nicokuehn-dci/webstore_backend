@@ -4,6 +4,9 @@ Cart Controller
 Handles shopping cart operations.
 """
 
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 from src.models.cart import Cart
 
 class CartController:
@@ -73,3 +76,5 @@ class CartController:
         self.cart.clear()
         
         return True, "Order completed successfully"
+    
+

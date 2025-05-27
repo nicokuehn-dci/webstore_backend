@@ -53,12 +53,14 @@ class Menu:
 
     @staticmethod
     def get_centered_input(term, prompt_text):
-        """Display a centered prompt and return user input"""
-        # Calculate center position and prompt length
-        prompt = f"{prompt_text} "
+        """Get input with centered prompt"""
+        # Calculate centering
+        width = term.width
+        prompt_length = len(prompt_text) + 20  # Add some padding for input
+        left_padding = (width - prompt_length) // 2
         
-        # Print the prompt centered
-        print(term.center(prompt), end="")
+        # Create centered prompt
+        print(term.move_x(left_padding) + prompt_text + " ", end="")
         
         # Get input
         user_input = input()
