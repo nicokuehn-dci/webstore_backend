@@ -6,6 +6,10 @@ A comprehensive e-commerce backend system with a CLI interface, featuring user m
 
 This project combines a powerful backend API with an interactive CLI interface for managing an e-commerce platform. It provides a complete solution for both administrators and customers, with features ranging from user authentication to order processing.
 
+![WebStore App Screenshot](docs/images/app-screenshot.png)
+
+*Screenshot: WebStore App Interface with orange-themed navigation and product management*
+
 ## Key Features
 
 ### User Management & Authentication
