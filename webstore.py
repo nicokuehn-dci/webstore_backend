@@ -89,6 +89,7 @@ def main():
     print(term.clear)
     # Title with orange background and black text
     print(term.move_y(2) + term.center(term.black_on_orange(term.bold(f" WebStore App v{VERSION} "))))
+    print()
     print(term.center(term.orange("Interactive CLI Menu System")))
     print(term.center(term.orange("-------------------------")))
     print()
