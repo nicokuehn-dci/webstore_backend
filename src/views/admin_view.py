@@ -6,11 +6,14 @@ Handles admin interface display components.
 
 from blessed import Terminal
 from src.views.menu import Menu
+from src.controllers.analytics_controller import AnalyticsController
 
 class AdminView:
-    def __init__(self, term, product_controller):
+    def __init__(self, term, product_controller, cart_controller):
         self.term = term
         self.product_controller = product_controller
+        self.cart_controller = cart_controller
+        self.analytics_controller = AnalyticsController(product_controller, cart_controller)
     
     def show_admin_menu(self, username):
         """Main admin menu with hierarchical submenus"""
@@ -22,21 +25,24 @@ class AdminView:
             admin_menu = Menu(f"Admin Menu - {username}", [
                 "📦 Product Management",
                 "📊 Reports & Statistics",
+                "📈 Analytics",
                 "🔧 Settings",
                 "❓ Help",
                 "🚪 Logout"
             ])
             choice = admin_menu.display()
             
-            if choice is None or choice == 4:  # Logout option or 'q' pressed
+            if choice is None or choice == 5:  # Logout option or 'q' pressed
                 break
             elif choice == 0:  # Product Management
                 self.product_management_menu()
             elif choice == 1:  # Reports & Statistics
                 self.show_reports_menu()
-            elif choice == 2:  # Settings
+            elif choice == 2:  # Analytics
+                self.show_analytics_menu()
+            elif choice == 3:  # Settings
                 self.settings_menu()
-            elif choice == 3:  # Help
+            elif choice == 4:  # Help
                 self.display_admin_help()
     
     def product_management_menu(self):
@@ -141,6 +147,7 @@ class AdminView:
             print(self.term.bold(self.term.center("📋 Admin Menu Structure:")))
             print(self.term.center("- Product Management: All product-related operations"))
             print(self.term.center("- Reports & Statistics: View sales and inventory reports"))
+            print(self.term.center("- Analytics: View detailed analytics and trends"))
             print(self.term.center("- Settings: Configure application settings"))
             print(self.term.center("- Help: Display this help screen"))
             print()
@@ -200,6 +207,57 @@ class AdminView:
             print(self.term.center("- Theme customization"))
             print(self.term.center("- Backup and restore"))
             input(self.term.center("\nPress Enter to return to Settings Menu..."))
+    
+    def show_analytics_menu(self):
+        """Show analytics and reporting interface"""
+        while True:
+            # Get analytics summary
+            summary = self.analytics_controller.get_analytics_summary()
+            
+            # Show analytics menu with live stats
+            analytics_menu = Menu("Analytics & Reports", [
+                f"📊 Product Statistics (Total: {summary['total_products']})",
+                f"📈 Sales Trend (7-day: ${summary['total_sales_7d']:.2f})",
+                f"🏪 Category Analysis ({summary['categories']} categories)",
+                f"⚠️  Low Stock Alert ({summary['low_stock_count']} items)",
+                "↩️  Back to Main Menu"
+            ])
+            
+            choice = analytics_menu.display()
+            
+            if choice == 0:
+                self.analytics_controller.show_product_stats(self.term)
+                input(self.term.center("\nPress Enter to continue..."))
+            elif choice == 1:
+                self.analytics_controller.show_sales_trend(self.term)
+                input(self.term.center("\nPress Enter to continue..."))
+            elif choice == 2:
+                self.analytics_controller.show_category_distribution(self.term)
+                input(self.term.center("\nPress Enter to continue..."))
+            elif choice == 3:
+                self._show_low_stock_report()
+            elif choice == 4 or choice is None:
+                break
+
+    def _show_low_stock_report(self):
+        """Show detailed low stock report"""
+        print(self.term.clear)
+        print(self.term.move_y(2) + self.term.center(self.term.bold("Low Stock Report")))
+        print()
+        
+        low_stock = self.analytics_controller.inventory_analytics.get_low_stock_products()
+        if low_stock:
+            for product in low_stock:
+                status = "CRITICAL" if product['stock'] <= 2 else "LOW"
+                color = self.term.red if status == "CRITICAL" else self.term.yellow
+                print(self.term.center(
+                    color(f"{status}: {product['name']} - {product['stock']} units remaining")
+                ))
+        else:
+            print(self.term.center(self.term.green("All products are well-stocked!")))
+        
+        print("\n" + self.term.center("---"))
+        input(self.term.center("\nPress Enter to continue..."))
     
     # Product management methods (placeholders for now)
     def show_add_product(self):

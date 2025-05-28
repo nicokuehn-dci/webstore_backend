@@ -1,5 +1,8 @@
 blessed==1.21.0
 wcwidth==0.2.13
+plotext==5.2.8
+pandas==2.1.0
+numpy==1.24.3
 # Additional dependencies
 setuptools>=65.5.1
 wheel>=0.40.0
