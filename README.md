@@ -27,6 +27,7 @@ This project implements a feature-rich e-commerce platform using Python's blesse
 - Inventory tracking
 - Product search and filtering
 
+
 #### Product Management
 ![Product Management](docs/images/product-management.png)
 *Administrative in
@@ -44,16 +45,16 @@ This project implements a feature-rich e-commerce platform using Python's blesse
 - Tax calculation
 - Multi-tiered pricing
 
-#### Shopping Cart
-![Shopping Cart](docs/images/cart-view.png)
-*Interactive shopping cart with real-time updates*terface for product management*
-
 ### Admin Interface
 - Product management dashboard
 - User management
 - Inventory control
 - Sales monitoring
 - System configuration
+
+#### Shopping Cart
+![Shopping Cart](docs/images/cart-view.png)
+*Interactive shopping cart with real-time updates*terface for product management*
 
 ### Security Features
 - Secure authentication
