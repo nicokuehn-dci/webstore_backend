@@ -12,20 +12,6 @@ This project implements a feature-rich e-commerce platform using Python's blesse
 ![WebStore App Screenshot](docs/images/app-screenshot.png)
 *Main Interface with orange-themed navigation*
 
-### Key Features Showcase
-
-#### Product Management
-![Product Management](docs/images/product-management.png)
-*Administrative interface for product management*
-
-#### Shopping Cart
-![Shopping Cart](docs/images/cart-view.png)
-*Interactive shopping cart with real-time updates*
-
-#### Checkout Process
-![Checkout Process](docs/images/checkout-process.png)
-*Streamlined checkout process with order summary*
-
 ## Key Features
 
 ### User Management & Authentication
@@ -34,19 +20,33 @@ This project implements a feature-rich e-commerce platform using Python's blesse
 - Password hashing and security
 - Session management
 
+
 ### Product Management
 - Comprehensive product catalog
 - Category-based organization
 - Inventory tracking
 - Product search and filtering
 
+#### Product Management
+![Product Management](docs/images/product-management.png)
+*Administrative in
+
 ### Shopping Experience
 - Interactive cart management
 - Secure checkout process
+
+#### Checkout Process
+![Checkout Process](docs/images/checkout-process.png)
+*Streamlined checkout process with order summary*
+
 - Order history tracking
 - Enhanced discount system
 - Tax calculation
 - Multi-tiered pricing
+
+#### Shopping Cart
+![Shopping Cart](docs/images/cart-view.png)
+*Interactive shopping cart with real-time updates*terface for product management*
 
 ### Admin Interface
 - Product management dashboard
