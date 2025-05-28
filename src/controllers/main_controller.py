@@ -5,7 +5,6 @@ Main application controller that coordinates other controllers and views.
 """
 
 from blessed import Terminal
-
 from src.controllers.auth_controller import AuthController
 from src.controllers.product_controller import ProductController
 from src.controllers.cart_controller import CartController
@@ -19,7 +18,7 @@ class MainController:
         self.auth_controller = AuthController(self.term)
         self.product_controller = ProductController(self.term)
         self.cart_controller = CartController(self.product_controller)
-        self.admin_view = AdminView(self.term, self.product_controller)
+        self.admin_view = AdminView(self.term, self.product_controller, self.cart_controller)
         self.customer_view = CustomerView(self.term)
         self.current_user = None
     
@@ -309,3 +308,7 @@ class MainController:
             
             print(self.term.center(self.term.green("All changes have been saved successfully!")))
             input(self.term.center("Press Enter to continue..."))
+
+
+
+            

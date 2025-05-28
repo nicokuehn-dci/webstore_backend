@@ -98,6 +98,24 @@ class ProductController:
                     "tags": product["tags"]
                 })
         return all_products
+        
+    def get_product_by_id(self, product_id):
+        """Get a product by ID for analytics and reporting"""
+        product_data = self.find_product_by_id(product_id)
+        if not product_data:
+            # Return a dummy product if not found
+            return type('obj', (object,), {
+                'name': 'Unknown Product',
+                'price': 0,
+                'stock': 0
+            })
+        
+        # Create a simple object with attribute access
+        return type('obj', (object,), {
+            'name': product_data['name'],
+            'price': product_data['price'],
+            'stock': product_data['stock']
+        })
     
     def get_products_by_category(self, category_index):
         """Get products from a specific category"""

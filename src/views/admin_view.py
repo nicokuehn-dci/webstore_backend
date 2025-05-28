@@ -214,12 +214,25 @@ class AdminView:
             # Get analytics summary
             summary = self.analytics_controller.get_analytics_summary()
             
+            # Display dashboard header
+            print(self.term.clear)
+            print(self.term.move_y(1) + self.term.center(self.term.bold_white_on_black("📊 ANALYTICS DASHBOARD")))
+            
+            # Display summary statistics in a modern card layout
+            print("\n" + self.term.center("─" * 50))
+            print(self.term.center(f"Total Products: {self.term.bold(str(summary['total_products']))} | " +
+                                   f"Low Stock: {self.term.bold_red(str(summary['low_stock_count']))} | " +
+                                   f"Categories: {self.term.bold(str(summary['categories']))}"))
+            print(self.term.center(f"7-Day Sales: {self.term.bold_green('$' + str(round(summary['total_sales_7d'], 2)))}"))
+            print(self.term.center("─" * 50))
+            
             # Show analytics menu with live stats
-            analytics_menu = Menu("Analytics & Reports", [
-                f"📊 Product Statistics (Total: {summary['total_products']})",
-                f"📈 Sales Trend (7-day: ${summary['total_sales_7d']:.2f})",
-                f"🏪 Category Analysis ({summary['categories']} categories)",
-                f"⚠️  Low Stock Alert ({summary['low_stock_count']} items)",
+            print("\n" + self.term.center(self.term.bold("Select Analytics View:")))
+            analytics_menu = Menu("", [
+                "📊 Product Stock Visualization",
+                "📈 Sales Trend Analysis",
+                "🏪 Category Distribution",
+                "⚠️  Low Stock Reports",
                 "↩️  Back to Main Menu"
             ])
             
@@ -242,21 +255,32 @@ class AdminView:
     def _show_low_stock_report(self):
         """Show detailed low stock report"""
         print(self.term.clear)
-        print(self.term.move_y(2) + self.term.center(self.term.bold("Low Stock Report")))
+        print(self.term.move_y(2) + self.term.center(self.term.bold_white_on_black("⚠️ Low Stock Report")))
         print()
         
         low_stock = self.analytics_controller.inventory_analytics.get_low_stock_products()
         if low_stock:
+            # Display header with count
+            print(self.term.center(f"Found {len(low_stock)} products with low stock levels"))
+            print(self.term.center("─" * 50))
+            print()
+            
+            # Display products in a card-like layout
             for product in low_stock:
                 status = "CRITICAL" if product['stock'] <= 2 else "LOW"
                 color = self.term.red if status == "CRITICAL" else self.term.yellow
-                print(self.term.center(
-                    color(f"{status}: {product['name']} - {product['stock']} units remaining")
-                ))
+                
+                # Product card
+                print(self.term.center("┌" + "─" * 48 + "┐"))
+                print(self.term.center("│ " + color(f"{status}: {product['name']}".ljust(46)) + " │"))
+                print(self.term.center("│ " + f"Stock: {product['stock']} units".ljust(46) + " │"))
+                print(self.term.center("│ " + f"Price: ${product['price']}".ljust(46) + " │"))
+                print(self.term.center("└" + "─" * 48 + "┘"))
+                print()
         else:
             print(self.term.center(self.term.green("All products are well-stocked!")))
         
-        print("\n" + self.term.center("---"))
+        print("\n" + self.term.center("─" * 50))
         input(self.term.center("\nPress Enter to continue..."))
     
     # Product management methods (placeholders for now)
