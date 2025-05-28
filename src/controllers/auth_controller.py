@@ -135,7 +135,7 @@ class AuthController:
                     user["last_login"] = "2025-05-26T00:00:00Z"
                     self.save_users_json(self.users_data)
                     
-                    print(self.term.center(self.term.green(f"Welcome, {username}!")))
+                    print(self.term.center(self.term.green(f"Welcome, {username.capitalize()}!")))
                     input(self.term.center("Press Enter to continue..."))
                     return user_obj
             
@@ -149,7 +149,7 @@ class AuthController:
                     admin["last_login"] = "2025-05-26T00:00:00Z"
                     self.save_admins_json(self.admins_data)
                     
-                    print(self.term.center(self.term.green(f"Welcome, Admin {username}!")))
+                    print(self.term.center(self.term.green(f"Welcome, Admin {username.capitalize()}!")))
                     input(self.term.center("Press Enter to continue..."))
                     return admin_obj
             

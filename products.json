@@ -11,7 +11,7 @@
           "name": "Smartphone X",
           "description": "Latest smartphone with advanced features",
           "price": 899.99,
-          "stock": 50,
+          "stock": 48,
           "image_url": "smartphone_x.jpg",
           "specifications": {
             "display": "6.5 inch OLED",
@@ -24,26 +24,38 @@
             "average": 4.7,
             "count": 128
           },
-          "tags": ["smartphone", "mobile", "tech", "featured"]
+          "tags": [
+            "smartphone",
+            "mobile",
+            "tech",
+            "featured"
+          ]
         },
         {
           "id": "e002",
           "name": "Wireless Headphones",
           "description": "Noise cancelling wireless headphones",
           "price": 199.99,
-          "stock": 75,
+          "stock": 74,
           "image_url": "headphones.jpg",
           "specifications": {
             "type": "Over-ear",
             "connectivity": "Bluetooth 5.0",
             "battery": "30 hours",
-            "features": ["Noise cancellation", "Built-in mic"]
+            "features": [
+              "Noise cancellation",
+              "Built-in mic"
+            ]
           },
           "ratings": {
             "average": 4.5,
             "count": 96
           },
-          "tags": ["audio", "wireless", "headphones"]
+          "tags": [
+            "audio",
+            "wireless",
+            "headphones"
+          ]
         },
         {
           "id": "e003",
@@ -55,14 +67,22 @@
           "specifications": {
             "display": "1.4 inch AMOLED",
             "battery": "7 days standby",
-            "sensors": ["Heart rate", "SpO2", "Accelerometer"],
+            "sensors": [
+              "Heart rate",
+              "SpO2",
+              "Accelerometer"
+            ],
             "water_resistant": "5 ATM"
           },
           "ratings": {
             "average": 4.6,
             "count": 83
           },
-          "tags": ["wearable", "fitness", "smartwatch"]
+          "tags": [
+            "wearable",
+            "fitness",
+            "smartwatch"
+          ]
         },
         {
           "id": "e004",
@@ -82,7 +102,11 @@
             "average": 4.8,
             "count": 64
           },
-          "tags": ["gaming", "laptop", "high-performance"]
+          "tags": [
+            "gaming",
+            "laptop",
+            "high-performance"
+          ]
         },
         {
           "id": "e005",
@@ -100,7 +124,11 @@
             "average": 4.3,
             "count": 112
           },
-          "tags": ["charging", "accessories", "wireless"]
+          "tags": [
+            "charging",
+            "accessories",
+            "wireless"
+          ]
         }
       ]
     },
@@ -119,14 +147,28 @@
           "image_url": "tshirt.jpg",
           "specifications": {
             "material": "100% Cotton",
-            "sizes": ["S", "M", "L", "XL"],
-            "colors": ["Black", "White", "Blue", "Gray"]
+            "sizes": [
+              "S",
+              "M",
+              "L",
+              "XL"
+            ],
+            "colors": [
+              "Black",
+              "White",
+              "Blue",
+              "Gray"
+            ]
           },
           "ratings": {
             "average": 4.3,
             "count": 85
           },
-          "tags": ["men", "casual", "top"]
+          "tags": [
+            "men",
+            "casual",
+            "top"
+          ]
         },
         {
           "id": "c002",
@@ -138,14 +180,27 @@
           "specifications": {
             "material": "Denim",
             "fit": "Regular",
-            "sizes": ["26", "28", "30", "32", "34"],
-            "colors": ["Blue", "Black"]
+            "sizes": [
+              "26",
+              "28",
+              "30",
+              "32",
+              "34"
+            ],
+            "colors": [
+              "Blue",
+              "Black"
+            ]
           },
           "ratings": {
             "average": 4.6,
             "count": 112
           },
-          "tags": ["women", "casual", "bottom"]
+          "tags": [
+            "women",
+            "casual",
+            "bottom"
+          ]
         },
         {
           "id": "c003",
@@ -156,14 +211,29 @@
           "image_url": "hoodie.jpg",
           "specifications": {
             "material": "80% Cotton, 20% Polyester",
-            "sizes": ["S", "M", "L", "XL", "XXL"],
-            "colors": ["Black", "Gray", "Navy", "Red"]
+            "sizes": [
+              "S",
+              "M",
+              "L",
+              "XL",
+              "XXL"
+            ],
+            "colors": [
+              "Black",
+              "Gray",
+              "Navy",
+              "Red"
+            ]
           },
           "ratings": {
             "average": 4.7,
             "count": 94
           },
-          "tags": ["unisex", "casual", "winter"]
+          "tags": [
+            "unisex",
+            "casual",
+            "winter"
+          ]
         },
         {
           "id": "c004",
@@ -175,14 +245,23 @@
           "specifications": {
             "material": "Rayon",
             "length": "Knee length",
-            "sizes": ["XS", "S", "M", "L"],
+            "sizes": [
+              "XS",
+              "S",
+              "M",
+              "L"
+            ],
             "pattern": "Floral print"
           },
           "ratings": {
             "average": 4.5,
             "count": 78
           },
-          "tags": ["women", "summer", "dress"]
+          "tags": [
+            "women",
+            "summer",
+            "dress"
+          ]
         },
         {
           "id": "c005",
@@ -194,21 +273,36 @@
           "specifications": {
             "material": "Cotton blend",
             "fit": "Regular fit",
-            "sizes": ["S", "M", "L", "XL", "XXL"],
-            "colors": ["White", "Light Blue", "Pink", "Lavender"]
+            "sizes": [
+              "S",
+              "M",
+              "L",
+              "XL",
+              "XXL"
+            ],
+            "colors": [
+              "White",
+              "Light Blue",
+              "Pink",
+              "Lavender"
+            ]
           },
           "ratings": {
             "average": 4.4,
             "count": 56
           },
-          "tags": ["men", "formal", "business"]
+          "tags": [
+            "men",
+            "formal",
+            "business"
+          ]
         }
       ]
     },
     {
       "id": "home",
       "name": "Home & Kitchen",
-      "description": "Home décor and kitchen appliances",
+      "description": "Home d\u00e9cor and kitchen appliances",
       "image_url": "home.jpg",
       "products": [
         {
@@ -221,13 +315,21 @@
           "specifications": {
             "capacity": "12 cups",
             "connectivity": "Wi-Fi, Bluetooth",
-            "features": ["Programmable", "Auto-shutoff", "Voice control"]
+            "features": [
+              "Programmable",
+              "Auto-shutoff",
+              "Voice control"
+            ]
           },
           "ratings": {
             "average": 4.4,
             "count": 72
           },
-          "tags": ["kitchen", "appliance", "smart home"]
+          "tags": [
+            "kitchen",
+            "appliance",
+            "smart home"
+          ]
         },
         {
           "id": "h002",
@@ -239,13 +341,22 @@
           "specifications": {
             "material": "Cotton blend",
             "size": "18 x 18 inches",
-            "colors": ["Beige", "Gray", "Blue", "Pink"]
+            "colors": [
+              "Beige",
+              "Gray",
+              "Blue",
+              "Pink"
+            ]
           },
           "ratings": {
             "average": 4.2,
             "count": 65
           },
-          "tags": ["home decor", "living room", "bedroom"]
+          "tags": [
+            "home decor",
+            "living room",
+            "bedroom"
+          ]
         },
         {
           "id": "h003",
@@ -264,7 +375,11 @@
             "average": 4.7,
             "count": 124
           },
-          "tags": ["kitchen", "cookware", "premium"]
+          "tags": [
+            "kitchen",
+            "cookware",
+            "premium"
+          ]
         },
         {
           "id": "h004",
@@ -283,7 +398,11 @@
             "average": 4.5,
             "count": 208
           },
-          "tags": ["smart home", "lighting", "energy efficient"]
+          "tags": [
+            "smart home",
+            "lighting",
+            "energy efficient"
+          ]
         },
         {
           "id": "h005",
@@ -301,7 +420,11 @@
             "average": 4.3,
             "count": 89
           },
-          "tags": ["kitchen", "organization", "eco-friendly"]
+          "tags": [
+            "kitchen",
+            "organization",
+            "eco-friendly"
+          ]
         }
       ]
     },
@@ -316,7 +439,7 @@
           "name": "The Modern Cookbook",
           "description": "Contemporary recipes for the home chef",
           "price": 29.99,
-          "stock": 60,
+          "stock": 59,
           "image_url": "cookbook.jpg",
           "specifications": {
             "format": "Hardcover",
@@ -327,14 +450,18 @@
             "average": 4.8,
             "count": 156
           },
-          "tags": ["cookbook", "recipes", "bestseller"]
+          "tags": [
+            "cookbook",
+            "recipes",
+            "bestseller"
+          ]
         },
         {
           "id": "b002",
           "name": "Business Strategy Guide",
           "description": "Practical guide to modern business strategy",
           "price": 24.99,
-          "stock": 45,
+          "stock": 44,
           "image_url": "business_book.jpg",
           "specifications": {
             "format": "Paperback",
@@ -345,7 +472,11 @@
             "average": 4.6,
             "count": 112
           },
-          "tags": ["business", "self-help", "career"]
+          "tags": [
+            "business",
+            "self-help",
+            "career"
+          ]
         },
         {
           "id": "b003",
@@ -363,13 +494,39 @@
             "average": 4.7,
             "count": 86
           },
-          "tags": ["fiction", "collection", "historical"]
+          "tags": [
+            "fiction",
+            "collection",
+            "historical"
+          ]
         }
       ]
     }
   ],
-  "featured_products": ["e001", "h001", "e003", "c004", "b001"],
-  "new_arrivals": ["c002", "h002", "e004", "h004", "b003"],
-  "best_sellers": ["e002", "c001", "h003", "c003", "b002"],
-  "on_sale": ["e005", "c005", "h005"]
+  "featured_products": [
+    "e001",
+    "h001",
+    "e003",
+    "c004",
+    "b001"
+  ],
+  "new_arrivals": [
+    "c002",
+    "h002",
+    "e004",
+    "h004",
+    "b003"
+  ],
+  "best_sellers": [
+    "e002",
+    "c001",
+    "h003",
+    "c003",
+    "b002"
+  ],
+  "on_sale": [
+    "e005",
+    "c005",
+    "h005"
+  ]
 }
