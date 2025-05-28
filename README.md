@@ -10,6 +10,7 @@ This project implements a feature-rich e-commerce platform using Python's blesse
 
 ### Main Interface
 ![WebStore App Screenshot](docs/images/app-screenshot.png)
+
 *Main Interface with orange-themed navigation*
 
 ## Key Features
