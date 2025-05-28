@@ -52,7 +52,7 @@ This project implements a feature-rich e-commerce platform using Python's blesse
 - Sales monitoring
 - System configuration
 
-#### Shopping Cart
+#### Product Management
 ![Shopping Cart](docs/images/cart-view.png)
 *Interactive shopping cart with real-time updates*terface for product management*
 
