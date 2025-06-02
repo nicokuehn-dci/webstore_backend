@@ -86,8 +86,7 @@ class MainController:
                 input(self.term.center("Press Enter to continue..."))
             elif choice == 9:
                 self.save_customer_changes()
-            elif choice == 10:
-                self.checkout()
+
 
 
     def browse_products(self):
