@@ -11,7 +11,7 @@
           "name": "Smartphone X",
           "description": "Latest smartphone with advanced features",
           "price": 899.99,
-          "stock": 48,
+          "stock": 39,
           "image_url": "smartphone_x.jpg",
           "specifications": {
             "display": "6.5 inch OLED",
@@ -62,7 +62,7 @@
           "name": "Smart Watch Pro",
           "description": "Fitness and health tracking with smart notifications",
           "price": 249.99,
-          "stock": 40,
+          "stock": 39,
           "image_url": "smartwatch_pro.jpg",
           "specifications": {
             "display": "1.4 inch AMOLED",
@@ -113,7 +113,7 @@
           "name": "Wireless Charging Pad",
           "description": "Fast wireless charging for compatible devices",
           "price": 39.99,
-          "stock": 100,
+          "stock": 99,
           "image_url": "charging_pad.jpg",
           "specifications": {
             "input": "USB-C",
@@ -240,7 +240,7 @@
           "name": "Women's Summer Dress",
           "description": "Lightweight floral print dress perfect for summer",
           "price": 59.99,
-          "stock": 45,
+          "stock": 43,
           "image_url": "summer_dress.jpg",
           "specifications": {
             "material": "Rayon",

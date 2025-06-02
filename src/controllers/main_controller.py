@@ -60,7 +60,7 @@ class MainController:
             customer_menu = Menu(f"Customer Menu - {self.current_user.username}", 
     ["Browse Products", "Search Products", "View Featured Products", 
      "View Cart", "Add to Cart", "Remove from Cart", 
-     "Checkout", "Save Changes", "Print Receipt", "Logout"])
+     "Checkout", "Save Changes", "Logout"])
             choice = customer_menu.display()
             
             if choice is None or choice == 10:  # Logout option or 'q' pressed
@@ -297,7 +297,6 @@ class MainController:
     def checkout(self):
         """Process the checkout"""
         items = self.cart_controller.get_cart_items()
-        
         if not items:
             with self.term.fullscreen():
                 print(self.term.clear)
@@ -309,14 +308,24 @@ class MainController:
         confirmed = self.customer_view.display_checkout(items)
         
         if confirmed:
+            # Get the order summary before checkout (so cart is not cleared)
+            summary = self.cart_controller.get_order_summary()
             success, message = self.cart_controller.checkout()
-            
-            # Update user order history (simplified)
-            # In a full implementation, we would create an order record
-            
             with self.term.fullscreen():
                 print(self.term.clear)
                 if success:
+                    # Print the receipt here, formatted for fullscreen
+                    print("--- Receipt ---")
+                    for item in summary['order_details']:
+                        print(self.term.center(f"{item['name']}: {item['price']:.2f} * {item['quantity']} = {item['item_total']:.2f}€"))
+                    print(self.term.center(f"Subtotal: {summary['subtotal']:.2f}€"))
+                    print(self.term.center(f"Tax ({int(self.cart_controller.tax_rate * 100)}%): {summary['tax']:.2f}€"))
+                    print(self.term.center(f"Total with tax: {summary['total_with_tax']:.2f}€"))
+                    if summary['discount'] > 0:
+                        print(self.term.center(f"Discount: {summary['discount']:.2f}€"))
+                        print(self.term.center(f"Discount percentage: {summary['discount_percentage']}"))
+                    print(self.term.center(f"Final total: {summary['final']:.2f}€"))
+                    print(self.term.center("Thank you for shopping!\n"))
                     print(self.term.center(self.term.green(message)))
                 else:
                     print(self.term.center(self.term.red(message)))
@@ -343,4 +352,4 @@ class MainController:
 
 
 
-            
+

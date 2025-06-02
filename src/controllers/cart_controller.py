@@ -30,7 +30,7 @@ class CartController:
         # Convert JSON product to Product object
         product_obj = self.product_controller.create_product_object(product_data)
         self.cart.add_item(product_obj)
-        
+        print("DEBUG: Cart items after add:", [item.name for item in self.cart.get_items()])
         return True, f"{product_data['name']} added to cart"
     
     def remove_from_cart(self, product_id):
@@ -112,34 +112,32 @@ class CartController:
             'order_details': order_details
         }
 
-    def print_receipt(self):
-        """Print a detailed receipt of the current cart"""
-        summary = self.get_order_summary()
-        print("\n--- Receipt ---")
-        
+    def print_receipt(self, summary=None):
+        if summary is None:
+            summary = self.get_order_summary()
+        print("print_receipt summary:", summary)
         if not summary['order_details']:
             print("Your cart is empty. No items to display.")
             print("Thank you for shopping!\n")
             return
 
+        print("--- Receipt ---")
         for item in summary['order_details']:
             print(f"{item['name']}: {item['price']:.2f} * {item['quantity']} = {item['item_total']:.2f}€")
 
         print(f"Subtotal: {summary['subtotal']:.2f}€")
         print(f"Tax ({int(self.tax_rate * 100)}%): {summary['tax']:.2f}€")
         print(f"Total with tax: {summary['total_with_tax']:.2f}€")
-        
         if summary['discount'] > 0:
             print(f"Discount: {summary['discount']:.2f}€")
             print(f"Discount percentage: {summary['discount_percentage']}")
-            
         print(f"Final total: {summary['final']:.2f}€")
         print("Thank you for shopping!\n")
 
     def checkout(self):
         """Process the checkout and update inventory"""
         items = self.cart.get_items()
-        
+        print("Cart items at checkout:", [item.name for item in items])
         if not items:
             return False, "Cart is empty"
         
@@ -155,13 +153,13 @@ class CartController:
         # Save changes to products
         self.product_controller.save_json()
         
-        # Print receipt
-        self.print_receipt()
+        # Print receipt BEFORE clearing the cart
+        self.print_receipt(summary)
         
         # Clear the cart after successful checkout
         self.cart.clear()
         
         return True, f"Order completed successfully. Total amount: €{summary['final']:.2f}"
-    
+
 
 
