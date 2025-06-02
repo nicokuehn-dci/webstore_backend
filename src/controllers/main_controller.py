@@ -58,12 +58,12 @@ class MainController:
         """Display the customer menu and handle options"""
         while True:
             customer_menu = Menu(f"Customer Menu - {self.current_user.username}", 
-                               ["Browse Products", "Search Products", "View Featured Products", 
-                                "View Cart", "Add to Cart", "Remove from Cart", 
-                                "Checkout", "Save Changes", "Logout"])
+    ["Browse Products", "Search Products", "View Featured Products", 
+     "View Cart", "Add to Cart", "Remove from Cart", 
+     "Checkout", "Save Changes", "Print Receipt", "Logout"])
             choice = customer_menu.display()
             
-            if choice is None or choice == 8:  # Logout option or 'q' pressed
+            if choice is None or choice == 10:  # Logout option or 'q' pressed
                 break
             elif choice == 0:
                 self.browse_products()
@@ -80,8 +80,16 @@ class MainController:
             elif choice == 6:
                 self.checkout()
             elif choice == 7:
+                self.display_order_summary()
+            elif choice == 8:
+                self.cart_controller.print_receipt()
+                input(self.term.center("Press Enter to continue..."))
+            elif choice == 9:
                 self.save_customer_changes()
-    
+            elif choice == 10:
+                self.checkout()
+
+
     def browse_products(self):
         """Browse products by category"""
         with self.term.fullscreen():
@@ -260,7 +268,32 @@ class MainController:
                 print(self.term.center(self.term.green(message)))
             else:
                 print(self.term.center(self.term.red(message)))
-            input(self.term.center("Press Enter to continue..."))
+            input(self.term.center("Press Enter to continue..."))  
+
+
+    def display_order_summary(self):
+        """Display a detailed order summary to the user"""
+        summary = self.cart_controller.get_order_summary()
+        with self.term.fullscreen():
+            print(self.term.clear)
+            print(self.term.move_y(2) + self.term.center(self.term.bold("Order Summary")))
+            print()
+            if not summary['order_details']:
+                print(self.term.center("Your cart is empty. No items to display."))
+                input(self.term.center("Press Enter to continue..."))
+                return
+            for item in summary['order_details']:
+                print(self.term.center(f"{item['name']}: {item['price']:.2f} * {item['quantity']} = {item['item_total']:.2f}€"))
+            print()
+            print(self.term.center(f"Subtotal: {summary['subtotal']:.2f}€"))
+            print(self.term.center(f"Tax ({int(self.cart_controller.tax_rate * 100)}%): {summary['tax']:.2f}€"))
+            print(self.term.center(f"Total with tax: {summary['total_with_tax']:.2f}€"))
+            if summary['discount'] > 0:
+                print(self.term.center(f"Discount: {summary['discount']:.2f}€"))
+                print(self.term.center(f"Discount percentage: {summary['discount_percentage']}"))
+            print(self.term.center(f"Final total: {summary['final']:.2f}€"))
+            print()
+            input(self.term.center("Press Enter to continue..."))                   
     
     def checkout(self):
         """Process the checkout"""
