@@ -124,10 +124,13 @@ Options:
   -h, --help     Show this help message and exit
   -v, --version  Show version and exit
   --init         Initialize repository with requirements.txt and .gitignore
+  --debug        Start with auto debugger monitoring
+  --debug-scan   Run a one-time debug scan
 
 Example:
   {sys.argv[0]}              Start the application
   {sys.argv[0]} --init       Initialize repository files
+  {sys.argv[0]} --debug      Start with debugging enabled
 """)
             sys.exit(0)
         elif sys.argv[1] in ['-v', '--version']:
@@ -136,6 +139,32 @@ Example:
         elif sys.argv[1] == '--init':
             print("Repository files already initialized.")
             sys.exit(0)
+        elif sys.argv[1] == '--debug':
+            # Start with auto debugger monitoring
+            try:
+                from auto_debugger.src.debugger import AutoDebugger
+                debugger = AutoDebugger()
+                print("🔍 Starting auto debugger monitoring...")
+                debugger.start_monitoring(interval=30)
+                print("✅ Auto debugger is now monitoring your code!")
+            except ImportError:
+                print("⚠️ Auto debugger not available")
+        elif sys.argv[1] == '--debug-scan':
+            # Run one-time debug scan
+            try:
+                from auto_debugger.src.debugger import AutoDebugger
+                debugger = AutoDebugger()
+                print("🔍 Running debug scan...")
+                results = debugger.run_full_analysis()
+                errors = len(results.get('errors', []))
+                warnings = len(results.get('warnings', []))
+                print(f"✅ Scan complete: {errors} errors, {warnings} warnings")
+                if errors > 0:
+                    print("📊 Check auto_debugger/reports/ for detailed results")
+                sys.exit(0)
+            except ImportError:
+                print("⚠️ Auto debugger not available")
+                sys.exit(1)
         else:
             print(f"Unknown option: {sys.argv[1]}")
             print(f"Use '{sys.argv[0]} --help' for usage information.")
