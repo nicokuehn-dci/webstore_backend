@@ -310,7 +310,7 @@ class MainController:
                 print(self.term.clear)
                 if success:
                     # Print the receipt here, formatted for fullscreen
-                    print("--- Receipt ---")
+                    print(self.term.center("--- Receipt ---"))
                     for item in summary['order_details']:
                         print(self.term.center(f"{item['name']}: {item['price']:.2f} * {item['quantity']} = {item['item_total']:.2f}€"))
                     print(self.term.center(f"Subtotal: {summary['subtotal']:.2f}€"))

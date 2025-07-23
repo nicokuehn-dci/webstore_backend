@@ -11,7 +11,7 @@
           "name": "Smartphone X",
           "description": "Latest smartphone with advanced features",
           "price": 899.99,
-          "stock": 39,
+          "stock": 38,
           "image_url": "smartphone_x.jpg",
           "specifications": {
             "display": "6.5 inch OLED",
