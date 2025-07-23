@@ -1,0 +1,1978 @@
+{
+  "metadata": {
+    "generated_at": "2025-07-23T11:19:15.569643",
+    "debugger_version": "1.0.0",
+    "analysis_type": "full_project_scan"
+  },
+  "summary": {
+    "total_files": 33,
+    "total_errors": 0,
+    "total_warnings": 241,
+    "total_performance_issues": 29,
+    "critical_issues": 0,
+    "high_priority_issues": 0,
+    "recommendations": [
+      "Consider performance optimization",
+      "Review and fix code quality warnings"
+    ]
+  },
+  "issues": {
+    "errors": [],
+    "warnings": [
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (90 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\migrate_data.py",
+        "line": 5,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (118 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\start_debugger.py",
+        "line": 56,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (95 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\start_debugger.py",
+        "line": 220,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (117 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\start_debugger.py",
+        "line": 235,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\start_debugger.py",
+        "line": 317,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (97 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\start_debugger.py",
+        "line": 319,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (102 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\start_debugger.py",
+        "line": 327,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (101 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\start_debugger.py",
+        "line": 330,
+        "severity": "LOW"
+      },
+      {
+        "type": "HIGH_COMPLEXITY",
+        "message": "Function \"main\" has high complexity (30)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\start_debugger.py",
+        "line": 132,
+        "severity": "MEDIUM"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (95 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 36,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (96 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 81,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (169 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 86,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (115 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 160,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 173,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (105 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 184,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (101 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 185,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (136 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 189,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (111 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 194,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (106 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 195,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 208,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (111 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 309,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (119 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 321,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (91 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 322,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (101 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 352,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (92 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 359,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 390,
+        "severity": "LOW"
+      },
+      {
+        "type": "HIGH_COMPLEXITY",
+        "message": "Function \"setup_venv_and_dependencies\" has high complexity (14)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 138,
+        "severity": "MEDIUM"
+      },
+      {
+        "type": "HIGH_COMPLEXITY",
+        "message": "Function \"parse_args\" has high complexity (14)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 219,
+        "severity": "MEDIUM"
+      },
+      {
+        "type": "HIGH_COMPLEXITY",
+        "message": "Function \"check_git_status\" has high complexity (12)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 377,
+        "severity": "MEDIUM"
+      },
+      {
+        "type": "HIGH_COMPLEXITY",
+        "message": "Function \"main\" has high complexity (11)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 452,
+        "severity": "MEDIUM"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (137 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\debug_cli.py",
+        "line": 71,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\debug_cli.py",
+        "line": 100,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (96 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\debugger.py",
+        "line": 121,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (101 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\debugger.py",
+        "line": 124,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (98 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\debugger.py",
+        "line": 170,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\debugger.py",
+        "line": 231,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (98 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\debugger.py",
+        "line": 232,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 22,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (98 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 57,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (96 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 75,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (90 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 112,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (116 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 127,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (100 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 130,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (95 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 138,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (99 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 185,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 17,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (90 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\error_detector.py",
+        "line": 62,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (96 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\error_detector.py",
+        "line": 80,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\error_detector.py",
+        "line": 117,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (90 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\error_detector.py",
+        "line": 137,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (98 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\error_detector.py",
+        "line": 165,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\error_detector.py",
+        "line": 215,
+        "severity": "LOW"
+      },
+      {
+        "type": "HIGH_COMPLEXITY",
+        "message": "Function \"_check_undefined_variables\" has high complexity (17)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\error_detector.py",
+        "line": 80,
+        "severity": "MEDIUM"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\error_detector.py",
+        "line": 17,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (92 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\performance_analyzer.py",
+        "line": 52,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (97 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\performance_analyzer.py",
+        "line": 72,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (94 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\performance_analyzer.py",
+        "line": 81,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\performance_analyzer.py",
+        "line": 94,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (92 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\performance_analyzer.py",
+        "line": 103,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\performance_analyzer.py",
+        "line": 14,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\log_handler.py",
+        "line": 78,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (106 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\log_handler.py",
+        "line": 83,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\log_handler.py",
+        "line": 16,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (92 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 71,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 120,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (98 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 148,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (126 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 164,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (107 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 177,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 186,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (98 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 208,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (113 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 218,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (102 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 219,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (114 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 244,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (102 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 258,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (107 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 271,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (92 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 304,
+        "severity": "LOW"
+      },
+      {
+        "type": "HIGH_COMPLEXITY",
+        "message": "Function \"_generate_readable_log\" has high complexity (21)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 186,
+        "severity": "MEDIUM"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 16,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\utils\\config.py",
+        "line": 15,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (91 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\utils\\file_scanner.py",
+        "line": 16,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\utils\\file_scanner.py",
+        "line": 14,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (114 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 72,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (107 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 84,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (106 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 119,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"AuthService\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 2,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"ProductService\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 19,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"CartService\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 36,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"OrderService\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 50,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 3,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"register\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 6,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"login\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 12,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 20,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"add_product\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 23,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"delete_product\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 29,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"list_products\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 32,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 37,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"add_to_cart\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 40,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"remove_from_cart\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 43,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"show_cart\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 46,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 51,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"calculate_order_summary\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 56,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"print_receipt\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 110,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (90 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\analytics_controller.py",
+        "line": 11,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\analytics_controller.py",
+        "line": 85,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (95 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\analytics_controller.py",
+        "line": 93,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (92 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\analytics_controller.py",
+        "line": 112,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (100 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\analytics_controller.py",
+        "line": 119,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (102 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\analytics_controller.py",
+        "line": 147,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"AnalyticsController\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\analytics_controller.py",
+        "line": 13,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\analytics_controller.py",
+        "line": 14,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 12,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (113 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 20,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (115 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 21,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (94 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 72,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (114 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 76,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (109 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 82,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (109 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 89,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (96 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 102,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (97 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 111,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (100 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 126,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (98 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 138,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (104 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 152,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"AuthController\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 17,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\auth_controller.py",
+        "line": 18,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (92 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\cart_controller.py",
+        "line": 33,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (106 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\cart_controller.py",
+        "line": 126,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (91 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\cart_controller.py",
+        "line": 162,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"CartController\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\cart_controller.py",
+        "line": 12,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\cart_controller.py",
+        "line": 13,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"print_receipt\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\cart_controller.py",
+        "line": 115,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 21,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (104 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 91,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (109 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 109,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (99 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 118,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (92 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 144,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (97 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 152,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (95 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 157,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 161,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 187,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (95 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 192,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (90 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 273,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (128 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 280,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (112 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 283,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (97 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 287,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (136 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 315,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (120 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 317,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (96 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 318,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (105 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 321,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 333,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (97 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 345,
+        "severity": "LOW"
+      },
+      {
+        "type": "HIGH_COMPLEXITY",
+        "message": "Function \"show_customer_menu\" has high complexity (12)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 57,
+        "severity": "MEDIUM"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"MainController\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 15,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\main_controller.py",
+        "line": 16,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (119 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\product_controller.py",
+        "line": 14,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\product_controller.py",
+        "line": 51,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (94 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\product_controller.py",
+        "line": 79,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (106 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\product_controller.py",
+        "line": 193,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"ProductController\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\product_controller.py",
+        "line": 11,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\product_controller.py",
+        "line": 12,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\analytics.py",
+        "line": 45,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"SalesAnalytics\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\analytics.py",
+        "line": 11,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"InventoryAnalytics\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\analytics.py",
+        "line": 74,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\analytics.py",
+        "line": 12,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\analytics.py",
+        "line": 75,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"Cart\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\cart.py",
+        "line": 7,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\cart.py",
+        "line": 8,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"add_item\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\cart.py",
+        "line": 11,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"remove_item\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\cart.py",
+        "line": 14,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"get_items\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\cart.py",
+        "line": 17,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"clear\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\cart.py",
+        "line": 20,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (129 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\product.py",
+        "line": 8,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"Product\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\product.py",
+        "line": 7,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\product.py",
+        "line": 8,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"User\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\user.py",
+        "line": 7,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\models\\user.py",
+        "line": 8,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (108 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\utils\\chart_helper.py",
+        "line": 20,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (99 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\utils\\chart_helper.py",
+        "line": 26,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (97 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\utils\\enhanced_utils.py",
+        "line": 234,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"Config\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\utils\\enhanced_utils.py",
+        "line": 189,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (94 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\utils\\setup.py",
+        "line": 19,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (91 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\utils\\setup.py",
+        "line": 69,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (102 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\utils\\setup.py",
+        "line": 82,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (92 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\utils\\setup.py",
+        "line": 99,
+        "severity": "LOW"
+      },
+      {
+        "type": "HIGH_COMPLEXITY",
+        "message": "Function \"setup_environment\" has high complexity (12)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\utils\\setup.py",
+        "line": 17,
+        "severity": "MEDIUM"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (92 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 16,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 120,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (97 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 126,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 133,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (105 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 141,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (91 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 148,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (95 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 149,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 157,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (99 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 158,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (91 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 162,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (102 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 168,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (94 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 169,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (101 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 170,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (90 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 171,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (96 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 172,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (97 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 187,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (113 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 219,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (107 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 223,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (107 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 224,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (96 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 225,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (123 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 226,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (107 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 258,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (90 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 261,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 264,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (102 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 275,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (99 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 276,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (94 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 277,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (108 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 291,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (111 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 298,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (111 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 305,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (110 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 312,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (112 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 319,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (114 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 326,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"AdminView\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 11,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\admin_view.py",
+        "line": 12,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (101 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\customer_view.py",
+        "line": 58,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (109 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\customer_view.py",
+        "line": 84,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (99 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\customer_view.py",
+        "line": 92,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (101 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\customer_view.py",
+        "line": 110,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (102 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\customer_view.py",
+        "line": 118,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (95 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\customer_view.py",
+        "line": 123,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (97 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\customer_view.py",
+        "line": 141,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"CustomerView\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\customer_view.py",
+        "line": 10,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"display_cart\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\customer_view.py",
+        "line": 145,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"display_checkout\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\customer_view.py",
+        "line": 149,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\customer_view.py",
+        "line": 11,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\menu.py",
+        "line": 21,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (89 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\menu.py",
+        "line": 28,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (116 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\menu.py",
+        "line": 33,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (93 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\menu.py",
+        "line": 35,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (100 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\menu.py",
+        "line": 38,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (91 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\menu.py",
+        "line": 39,
+        "severity": "LOW"
+      },
+      {
+        "type": "LINE_TOO_LONG",
+        "message": "Line too long (95 > 88 characters)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\menu.py",
+        "line": 42,
+        "severity": "LOW"
+      },
+      {
+        "type": "HIGH_COMPLEXITY",
+        "message": "Function \"display\" has high complexity (29)",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\menu.py",
+        "line": 17,
+        "severity": "MEDIUM"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Class \"Menu\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\menu.py",
+        "line": 10,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"__init__\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\menu.py",
+        "line": 11,
+        "severity": "LOW"
+      },
+      {
+        "type": "MISSING_DOCSTRING",
+        "message": "Function \"display\" is missing a docstring",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\menu.py",
+        "line": 17,
+        "severity": "LOW"
+      }
+    ],
+    "performance_issues": [
+      {
+        "type": "IMPORT_IN_FUNCTION",
+        "message": "Import statement inside function may impact performance",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\start_debugger.py",
+        "line": 344,
+        "severity": "LOW",
+        "suggestion": "Move import to module level if possible"
+      },
+      {
+        "type": "IMPORT_IN_FUNCTION",
+        "message": "Import statement inside function may impact performance",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 252,
+        "severity": "LOW",
+        "suggestion": "Move import to module level if possible"
+      },
+      {
+        "type": "IMPORT_IN_FUNCTION",
+        "message": "Import statement inside function may impact performance",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 262,
+        "severity": "LOW",
+        "suggestion": "Move import to module level if possible"
+      },
+      {
+        "type": "IMPORT_IN_FUNCTION",
+        "message": "Import statement inside function may impact performance",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 278,
+        "severity": "LOW",
+        "suggestion": "Move import to module level if possible"
+      },
+      {
+        "type": "IMPORT_IN_FUNCTION",
+        "message": "Import statement inside function may impact performance",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 287,
+        "severity": "LOW",
+        "suggestion": "Move import to module level if possible"
+      },
+      {
+        "type": "IMPORT_IN_FUNCTION",
+        "message": "Import statement inside function may impact performance",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 424,
+        "severity": "LOW",
+        "suggestion": "Move import to module level if possible"
+      },
+      {
+        "type": "IMPORT_IN_FUNCTION",
+        "message": "Import statement inside function may impact performance",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\webstore.py",
+        "line": 434,
+        "severity": "LOW",
+        "suggestion": "Move import to module level if possible"
+      },
+      {
+        "type": "IMPORT_IN_FUNCTION",
+        "message": "Import statement inside function may impact performance",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\debug_cli.py",
+        "line": 81,
+        "severity": "LOW",
+        "suggestion": "Move import to module level if possible"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\debugger.py",
+        "line": 203,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\debugger.py",
+        "line": 205,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 89,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 91,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 93,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 188,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 201,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\code_analyzer.py",
+        "line": 201,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "IMPORT_IN_FUNCTION",
+        "message": "Import statement inside function may impact performance",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\analyzers\\error_detector.py",
+        "line": 176,
+        "severity": "LOW",
+        "suggestion": "Move import to module level if possible"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 162,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\handlers\\report_handler.py",
+        "line": 175,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\utils\\file_scanner.py",
+        "line": 67,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\utils\\file_scanner.py",
+        "line": 68,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\utils\\file_scanner.py",
+        "line": 80,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\auto_debugger\\src\\utils\\file_scanner.py",
+        "line": 80,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\backup\\abd.py",
+        "line": 76,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\cart_controller.py",
+        "line": 55,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\controllers\\cart_controller.py",
+        "line": 83,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "IMPORT_IN_FUNCTION",
+        "message": "Import statement inside function may impact performance",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\utils\\enhanced_utils.py",
+        "line": 171,
+        "severity": "LOW",
+        "suggestion": "Move import to module level if possible"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\customer_view.py",
+        "line": 29,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      },
+      {
+        "type": "STRING_CONCAT_IN_LOOP",
+        "message": "String concatenation in loop can be inefficient",
+        "file": "C:\\Users\\MadBeats\\Desktop\\webstore Project\\webstore_backend\\src\\views\\customer_view.py",
+        "line": 44,
+        "severity": "MEDIUM",
+        "suggestion": "Consider using list.append() and join()"
+      }
+    ]
+  },
+  "code_quality": {
+    "total_files": 33,
+    "total_lines": 4883,
+    "packages": [],
+    "missing_init_files": [
+      "backup",
+      "src\\controllers",
+      "src\\models",
+      "src\\utils",
+      "src\\views"
+    ],
+    "large_files": [
+      {
+        "file": "webstore.py",
+        "lines": 520
+      }
+    ],
+    "duplicate_code": []
+  },
+  "recommendations": [
+    {
+      "priority": "MEDIUM",
+      "category": "Code Quality",
+      "message": "High number of code quality warnings detected",
+      "action": "Review coding standards and refactor problematic areas"
+    },
+    {
+      "priority": "MEDIUM",
+      "category": "Performance",
+      "message": "Multiple performance issues detected",
+      "action": "Optimize loops, string operations, and imports"
+    }
+  ]
+}

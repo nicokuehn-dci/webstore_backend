@@ -1,0 +1,890 @@
+================================================================================
+WebStore Auto Debugger - Analysis Report
+================================================================================
+Generated: 2025-07-23T11:19:15.569643
+Analysis Type: full_project_scan
+================================================================================
+
+📊 ANALYSIS SUMMARY
+----------------------------------------
+📁 Files Analyzed: 33
+📂 Directories Scanned: 0
+📝 Lines of Code: 0
+🚨 Errors Found: 0
+⚠️  Warnings: 241
+🚀 Performance Issues: 29
+🔥 Critical Issues: 0
+⚡ High Priority: 0
+
+⚠️  WARNINGS BY SEVERITY
+==================================================
+
+--- MEDIUM PRIORITY WARNINGS ---
+
+1. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\start_debugger.py
+   Line 132: Function "main" has high complexity (30)
+
+2. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 138: Function "setup_venv_and_dependencies" has high complexity (14)
+
+3. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 219: Function "parse_args" has high complexity (14)
+
+4. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 377: Function "check_git_status" has high complexity (12)
+
+5. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 452: Function "main" has high complexity (11)
+
+6. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\error_detector.py
+   Line 80: Function "_check_undefined_variables" has high complexity (17)
+
+7. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 186: Function "_generate_readable_log" has high complexity (21)
+
+8. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 57: Function "show_customer_menu" has high complexity (12)
+
+9. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\utils\setup.py
+   Line 17: Function "setup_environment" has high complexity (12)
+
+10. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\menu.py
+   Line 17: Function "display" has high complexity (29)
+
+--- LOW PRIORITY WARNINGS ---
+
+1. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\migrate_data.py
+   Line 5: Line too long (90 > 88 characters)
+
+2. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\start_debugger.py
+   Line 56: Line too long (118 > 88 characters)
+
+3. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\start_debugger.py
+   Line 220: Line too long (95 > 88 characters)
+
+4. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\start_debugger.py
+   Line 235: Line too long (117 > 88 characters)
+
+5. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\start_debugger.py
+   Line 317: Line too long (89 > 88 characters)
+
+6. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\start_debugger.py
+   Line 319: Line too long (97 > 88 characters)
+
+7. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\start_debugger.py
+   Line 327: Line too long (102 > 88 characters)
+
+8. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\start_debugger.py
+   Line 330: Line too long (101 > 88 characters)
+
+9. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 36: Line too long (95 > 88 characters)
+
+10. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 81: Line too long (96 > 88 characters)
+
+11. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 86: Line too long (169 > 88 characters)
+
+12. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 160: Line too long (115 > 88 characters)
+
+13. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 173: Line too long (93 > 88 characters)
+
+14. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 184: Line too long (105 > 88 characters)
+
+15. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 185: Line too long (101 > 88 characters)
+
+16. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 189: Line too long (136 > 88 characters)
+
+17. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 194: Line too long (111 > 88 characters)
+
+18. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 195: Line too long (106 > 88 characters)
+
+19. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 208: Line too long (93 > 88 characters)
+
+20. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 309: Line too long (111 > 88 characters)
+
+21. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 321: Line too long (119 > 88 characters)
+
+22. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 322: Line too long (91 > 88 characters)
+
+23. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 352: Line too long (101 > 88 characters)
+
+24. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 359: Line too long (92 > 88 characters)
+
+25. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 390: Line too long (89 > 88 characters)
+
+26. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\debug_cli.py
+   Line 71: Line too long (137 > 88 characters)
+
+27. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\debug_cli.py
+   Line 100: Line too long (93 > 88 characters)
+
+28. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\debugger.py
+   Line 121: Line too long (96 > 88 characters)
+
+29. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\debugger.py
+   Line 124: Line too long (101 > 88 characters)
+
+30. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\debugger.py
+   Line 170: Line too long (98 > 88 characters)
+
+31. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\debugger.py
+   Line 231: Line too long (93 > 88 characters)
+
+32. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\debugger.py
+   Line 232: Line too long (98 > 88 characters)
+
+33. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 22: Line too long (89 > 88 characters)
+
+34. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 57: Line too long (98 > 88 characters)
+
+35. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 75: Line too long (96 > 88 characters)
+
+36. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 112: Line too long (90 > 88 characters)
+
+37. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 127: Line too long (116 > 88 characters)
+
+38. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 130: Line too long (100 > 88 characters)
+
+39. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 138: Line too long (95 > 88 characters)
+
+40. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 185: Line too long (99 > 88 characters)
+
+41. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 17: Function "__init__" is missing a docstring
+
+42. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\error_detector.py
+   Line 62: Line too long (90 > 88 characters)
+
+43. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\error_detector.py
+   Line 80: Line too long (96 > 88 characters)
+
+44. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\error_detector.py
+   Line 117: Line too long (93 > 88 characters)
+
+45. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\error_detector.py
+   Line 137: Line too long (90 > 88 characters)
+
+46. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\error_detector.py
+   Line 165: Line too long (98 > 88 characters)
+
+47. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\error_detector.py
+   Line 215: Line too long (89 > 88 characters)
+
+48. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\error_detector.py
+   Line 17: Function "__init__" is missing a docstring
+
+49. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\performance_analyzer.py
+   Line 52: Line too long (92 > 88 characters)
+
+50. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\performance_analyzer.py
+   Line 72: Line too long (97 > 88 characters)
+
+51. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\performance_analyzer.py
+   Line 81: Line too long (94 > 88 characters)
+
+52. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\performance_analyzer.py
+   Line 94: Line too long (89 > 88 characters)
+
+53. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\performance_analyzer.py
+   Line 103: Line too long (92 > 88 characters)
+
+54. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\performance_analyzer.py
+   Line 14: Function "__init__" is missing a docstring
+
+55. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\log_handler.py
+   Line 78: Line too long (93 > 88 characters)
+
+56. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\log_handler.py
+   Line 83: Line too long (106 > 88 characters)
+
+57. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\log_handler.py
+   Line 16: Function "__init__" is missing a docstring
+
+58. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 71: Line too long (92 > 88 characters)
+
+59. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 120: Line too long (89 > 88 characters)
+
+60. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 148: Line too long (98 > 88 characters)
+
+61. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 164: Line too long (126 > 88 characters)
+
+62. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 177: Line too long (107 > 88 characters)
+
+63. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 186: Line too long (89 > 88 characters)
+
+64. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 208: Line too long (98 > 88 characters)
+
+65. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 218: Line too long (113 > 88 characters)
+
+66. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 219: Line too long (102 > 88 characters)
+
+67. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 244: Line too long (114 > 88 characters)
+
+68. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 258: Line too long (102 > 88 characters)
+
+69. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 271: Line too long (107 > 88 characters)
+
+70. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 304: Line too long (92 > 88 characters)
+
+71. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 16: Function "__init__" is missing a docstring
+
+72. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\utils\config.py
+   Line 15: Function "__init__" is missing a docstring
+
+73. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\utils\file_scanner.py
+   Line 16: Line too long (91 > 88 characters)
+
+74. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\utils\file_scanner.py
+   Line 14: Function "__init__" is missing a docstring
+
+75. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 72: Line too long (114 > 88 characters)
+
+76. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 84: Line too long (107 > 88 characters)
+
+77. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 119: Line too long (106 > 88 characters)
+
+78. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 2: Class "AuthService" is missing a docstring
+
+79. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 19: Class "ProductService" is missing a docstring
+
+80. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 36: Class "CartService" is missing a docstring
+
+81. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 50: Class "OrderService" is missing a docstring
+
+82. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 3: Function "__init__" is missing a docstring
+
+83. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 6: Function "register" is missing a docstring
+
+84. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 12: Function "login" is missing a docstring
+
+85. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 20: Function "__init__" is missing a docstring
+
+86. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 23: Function "add_product" is missing a docstring
+
+87. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 29: Function "delete_product" is missing a docstring
+
+88. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 32: Function "list_products" is missing a docstring
+
+89. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 37: Function "__init__" is missing a docstring
+
+90. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 40: Function "add_to_cart" is missing a docstring
+
+91. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 43: Function "remove_from_cart" is missing a docstring
+
+92. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 46: Function "show_cart" is missing a docstring
+
+93. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 51: Function "__init__" is missing a docstring
+
+94. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 56: Function "calculate_order_summary" is missing a docstring
+
+95. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 110: Function "print_receipt" is missing a docstring
+
+96. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\analytics_controller.py
+   Line 11: Line too long (90 > 88 characters)
+
+97. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\analytics_controller.py
+   Line 85: Line too long (93 > 88 characters)
+
+98. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\analytics_controller.py
+   Line 93: Line too long (95 > 88 characters)
+
+99. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\analytics_controller.py
+   Line 112: Line too long (92 > 88 characters)
+
+100. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\analytics_controller.py
+   Line 119: Line too long (100 > 88 characters)
+
+101. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\analytics_controller.py
+   Line 147: Line too long (102 > 88 characters)
+
+102. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\analytics_controller.py
+   Line 13: Class "AnalyticsController" is missing a docstring
+
+103. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\analytics_controller.py
+   Line 14: Function "__init__" is missing a docstring
+
+104. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 12: Line too long (93 > 88 characters)
+
+105. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 20: Line too long (113 > 88 characters)
+
+106. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 21: Line too long (115 > 88 characters)
+
+107. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 72: Line too long (94 > 88 characters)
+
+108. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 76: Line too long (114 > 88 characters)
+
+109. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 82: Line too long (109 > 88 characters)
+
+110. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 89: Line too long (109 > 88 characters)
+
+111. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 102: Line too long (96 > 88 characters)
+
+112. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 111: Line too long (97 > 88 characters)
+
+113. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 126: Line too long (100 > 88 characters)
+
+114. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 138: Line too long (98 > 88 characters)
+
+115. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 152: Line too long (104 > 88 characters)
+
+116. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 17: Class "AuthController" is missing a docstring
+
+117. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\auth_controller.py
+   Line 18: Function "__init__" is missing a docstring
+
+118. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\cart_controller.py
+   Line 33: Line too long (92 > 88 characters)
+
+119. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\cart_controller.py
+   Line 126: Line too long (106 > 88 characters)
+
+120. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\cart_controller.py
+   Line 162: Line too long (91 > 88 characters)
+
+121. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\cart_controller.py
+   Line 12: Class "CartController" is missing a docstring
+
+122. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\cart_controller.py
+   Line 13: Function "__init__" is missing a docstring
+
+123. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\cart_controller.py
+   Line 115: Function "print_receipt" is missing a docstring
+
+124. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 21: Line too long (93 > 88 characters)
+
+125. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 91: Line too long (104 > 88 characters)
+
+126. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 109: Line too long (109 > 88 characters)
+
+127. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 118: Line too long (99 > 88 characters)
+
+128. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 144: Line too long (92 > 88 characters)
+
+129. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 152: Line too long (97 > 88 characters)
+
+130. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 157: Line too long (95 > 88 characters)
+
+131. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 161: Line too long (89 > 88 characters)
+
+132. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 187: Line too long (89 > 88 characters)
+
+133. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 192: Line too long (95 > 88 characters)
+
+134. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 273: Line too long (90 > 88 characters)
+
+135. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 280: Line too long (128 > 88 characters)
+
+136. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 283: Line too long (112 > 88 characters)
+
+137. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 287: Line too long (97 > 88 characters)
+
+138. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 315: Line too long (136 > 88 characters)
+
+139. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 317: Line too long (120 > 88 characters)
+
+140. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 318: Line too long (96 > 88 characters)
+
+141. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 321: Line too long (105 > 88 characters)
+
+142. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 333: Line too long (89 > 88 characters)
+
+143. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 345: Line too long (97 > 88 characters)
+
+144. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 15: Class "MainController" is missing a docstring
+
+145. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\main_controller.py
+   Line 16: Function "__init__" is missing a docstring
+
+146. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\product_controller.py
+   Line 14: Line too long (119 > 88 characters)
+
+147. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\product_controller.py
+   Line 51: Line too long (93 > 88 characters)
+
+148. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\product_controller.py
+   Line 79: Line too long (94 > 88 characters)
+
+149. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\product_controller.py
+   Line 193: Line too long (106 > 88 characters)
+
+150. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\product_controller.py
+   Line 11: Class "ProductController" is missing a docstring
+
+151. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\product_controller.py
+   Line 12: Function "__init__" is missing a docstring
+
+152. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\analytics.py
+   Line 45: Line too long (89 > 88 characters)
+
+153. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\analytics.py
+   Line 11: Class "SalesAnalytics" is missing a docstring
+
+154. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\analytics.py
+   Line 74: Class "InventoryAnalytics" is missing a docstring
+
+155. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\analytics.py
+   Line 12: Function "__init__" is missing a docstring
+
+156. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\analytics.py
+   Line 75: Function "__init__" is missing a docstring
+
+157. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\cart.py
+   Line 7: Class "Cart" is missing a docstring
+
+158. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\cart.py
+   Line 8: Function "__init__" is missing a docstring
+
+159. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\cart.py
+   Line 11: Function "add_item" is missing a docstring
+
+160. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\cart.py
+   Line 14: Function "remove_item" is missing a docstring
+
+161. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\cart.py
+   Line 17: Function "get_items" is missing a docstring
+
+162. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\cart.py
+   Line 20: Function "clear" is missing a docstring
+
+163. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\product.py
+   Line 8: Line too long (129 > 88 characters)
+
+164. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\product.py
+   Line 7: Class "Product" is missing a docstring
+
+165. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\product.py
+   Line 8: Function "__init__" is missing a docstring
+
+166. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\user.py
+   Line 7: Class "User" is missing a docstring
+
+167. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\models\user.py
+   Line 8: Function "__init__" is missing a docstring
+
+168. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\utils\chart_helper.py
+   Line 20: Line too long (108 > 88 characters)
+
+169. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\utils\chart_helper.py
+   Line 26: Line too long (99 > 88 characters)
+
+170. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\utils\enhanced_utils.py
+   Line 234: Line too long (97 > 88 characters)
+
+171. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\utils\enhanced_utils.py
+   Line 189: Class "Config" is missing a docstring
+
+172. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\utils\setup.py
+   Line 19: Line too long (94 > 88 characters)
+
+173. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\utils\setup.py
+   Line 69: Line too long (91 > 88 characters)
+
+174. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\utils\setup.py
+   Line 82: Line too long (102 > 88 characters)
+
+175. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\utils\setup.py
+   Line 99: Line too long (92 > 88 characters)
+
+176. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 16: Line too long (92 > 88 characters)
+
+177. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 120: Line too long (93 > 88 characters)
+
+178. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 126: Line too long (97 > 88 characters)
+
+179. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 133: Line too long (93 > 88 characters)
+
+180. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 141: Line too long (105 > 88 characters)
+
+181. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 148: Line too long (91 > 88 characters)
+
+182. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 149: Line too long (95 > 88 characters)
+
+183. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 157: Line too long (89 > 88 characters)
+
+184. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 158: Line too long (99 > 88 characters)
+
+185. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 162: Line too long (91 > 88 characters)
+
+186. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 168: Line too long (102 > 88 characters)
+
+187. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 169: Line too long (94 > 88 characters)
+
+188. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 170: Line too long (101 > 88 characters)
+
+189. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 171: Line too long (90 > 88 characters)
+
+190. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 172: Line too long (96 > 88 characters)
+
+191. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 187: Line too long (97 > 88 characters)
+
+192. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 219: Line too long (113 > 88 characters)
+
+193. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 223: Line too long (107 > 88 characters)
+
+194. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 224: Line too long (107 > 88 characters)
+
+195. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 225: Line too long (96 > 88 characters)
+
+196. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 226: Line too long (123 > 88 characters)
+
+197. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 258: Line too long (107 > 88 characters)
+
+198. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 261: Line too long (90 > 88 characters)
+
+199. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 264: Line too long (93 > 88 characters)
+
+200. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 275: Line too long (102 > 88 characters)
+
+201. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 276: Line too long (99 > 88 characters)
+
+202. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 277: Line too long (94 > 88 characters)
+
+203. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 291: Line too long (108 > 88 characters)
+
+204. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 298: Line too long (111 > 88 characters)
+
+205. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 305: Line too long (111 > 88 characters)
+
+206. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 312: Line too long (110 > 88 characters)
+
+207. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 319: Line too long (112 > 88 characters)
+
+208. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 326: Line too long (114 > 88 characters)
+
+209. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 11: Class "AdminView" is missing a docstring
+
+210. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\admin_view.py
+   Line 12: Function "__init__" is missing a docstring
+
+211. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\customer_view.py
+   Line 58: Line too long (101 > 88 characters)
+
+212. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\customer_view.py
+   Line 84: Line too long (109 > 88 characters)
+
+213. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\customer_view.py
+   Line 92: Line too long (99 > 88 characters)
+
+214. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\customer_view.py
+   Line 110: Line too long (101 > 88 characters)
+
+215. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\customer_view.py
+   Line 118: Line too long (102 > 88 characters)
+
+216. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\customer_view.py
+   Line 123: Line too long (95 > 88 characters)
+
+217. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\customer_view.py
+   Line 141: Line too long (97 > 88 characters)
+
+218. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\customer_view.py
+   Line 10: Class "CustomerView" is missing a docstring
+
+219. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\customer_view.py
+   Line 145: Function "display_cart" is missing a docstring
+
+220. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\customer_view.py
+   Line 149: Function "display_checkout" is missing a docstring
+
+221. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\customer_view.py
+   Line 11: Function "__init__" is missing a docstring
+
+222. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\menu.py
+   Line 21: Line too long (89 > 88 characters)
+
+223. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\menu.py
+   Line 28: Line too long (89 > 88 characters)
+
+224. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\menu.py
+   Line 33: Line too long (116 > 88 characters)
+
+225. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\menu.py
+   Line 35: Line too long (93 > 88 characters)
+
+226. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\menu.py
+   Line 38: Line too long (100 > 88 characters)
+
+227. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\menu.py
+   Line 39: Line too long (91 > 88 characters)
+
+228. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\menu.py
+   Line 42: Line too long (95 > 88 characters)
+
+229. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\menu.py
+   Line 10: Class "Menu" is missing a docstring
+
+230. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\menu.py
+   Line 11: Function "__init__" is missing a docstring
+
+231. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\menu.py
+   Line 17: Function "display" is missing a docstring
+
+🚀 PERFORMANCE ISSUES
+==================================================
+
+1. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\start_debugger.py
+   Line 344: Import statement inside function may impact performance
+   💡 Optimization: Move import to module level if possible
+
+2. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 252: Import statement inside function may impact performance
+   💡 Optimization: Move import to module level if possible
+
+3. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 262: Import statement inside function may impact performance
+   💡 Optimization: Move import to module level if possible
+
+4. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 278: Import statement inside function may impact performance
+   💡 Optimization: Move import to module level if possible
+
+5. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 287: Import statement inside function may impact performance
+   💡 Optimization: Move import to module level if possible
+
+6. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 424: Import statement inside function may impact performance
+   💡 Optimization: Move import to module level if possible
+
+7. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\webstore.py
+   Line 434: Import statement inside function may impact performance
+   💡 Optimization: Move import to module level if possible
+
+8. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\debug_cli.py
+   Line 81: Import statement inside function may impact performance
+   💡 Optimization: Move import to module level if possible
+
+9. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\debugger.py
+   Line 203: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+10. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\debugger.py
+   Line 205: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+11. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 89: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+12. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 91: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+13. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 93: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+14. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 188: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+15. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 201: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+16. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\code_analyzer.py
+   Line 201: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+17. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\analyzers\error_detector.py
+   Line 176: Import statement inside function may impact performance
+   💡 Optimization: Move import to module level if possible
+
+18. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 162: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+19. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\handlers\report_handler.py
+   Line 175: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+20. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\utils\file_scanner.py
+   Line 67: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+21. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\utils\file_scanner.py
+   Line 68: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+22. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\utils\file_scanner.py
+   Line 80: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+23. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\auto_debugger\src\utils\file_scanner.py
+   Line 80: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+24. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\backup\abd.py
+   Line 76: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+25. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\cart_controller.py
+   Line 55: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+26. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\controllers\cart_controller.py
+   Line 83: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+27. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\utils\enhanced_utils.py
+   Line 171: Import statement inside function may impact performance
+   💡 Optimization: Move import to module level if possible
+
+28. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\customer_view.py
+   Line 29: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+29. C:\Users\MadBeats\Desktop\webstore Project\webstore_backend\src\views\customer_view.py
+   Line 44: String concatenation in loop can be inefficient
+   💡 Optimization: Consider using list.append() and join()
+
+💡 RECOMMENDATIONS
+==================================================
+
+1. [MEDIUM] Code Quality
+   High number of code quality warnings detected
+   Action: Review coding standards and refactor problematic areas
+
+2. [MEDIUM] Performance
+   Multiple performance issues detected
+   Action: Optimize loops, string operations, and imports
+
+📈 CODE QUALITY METRICS
+==================================================
+total_files: 33
+total_lines: 4883
+packages: []
+missing_init_files: ['backup', 'src\\controllers', 'src\\models', 'src\\utils', 'src\\views']
+large_files: [{'file': 'webstore.py', 'lines': 520}]
+duplicate_code: []
+
+================================================================================
+End of Report
+================================================================================

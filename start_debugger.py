@@ -13,6 +13,7 @@ Examples:
     python start_debugger.py --scan             # Quick scan only
     python start_debugger.py --report           # Generate report
     python start_debugger.py --status           # Show status
+    python start_debugger.py --view-log         # View latest log file
     python start_debugger.py --help             # Show help
 """
 
@@ -31,6 +32,48 @@ except ImportError as e:
     print(f"❌ Error importing auto debugger: {e}")
     print("Make sure the auto_debugger directory exists and is properly configured.")
     sys.exit(1)
+
+
+def display_log_with_pagination(log_path: str, lines_per_page: int = 50):
+    """Display log file content with pagination."""
+    try:
+        with open(log_path, 'r', encoding='utf-8') as f:
+            lines = f.readlines()
+        
+        total_lines = len(lines)
+        current_line = 0
+        
+        while current_line < total_lines:
+            # Clear screen for better viewing
+            os.system('cls' if os.name == 'nt' else 'clear')
+            
+            # Show current page
+            end_line = min(current_line + lines_per_page, total_lines)
+            for i in range(current_line, end_line):
+                print(lines[i], end='')
+            
+            # Show pagination info
+            print(f"\n--- Page {current_line // lines_per_page + 1} of {(total_lines - 1) // lines_per_page + 1} ---")
+            print(f"Lines {current_line + 1}-{end_line} of {total_lines}")
+            
+            # Get user input for navigation
+            if end_line >= total_lines:
+                print("\n✅ End of log file. Press Enter to exit...")
+                input()
+                break
+            else:
+                print("\nPress Enter for next page, 'q' to quit, 'b' for beginning:")
+                choice = input().strip().lower()
+                
+                if choice == 'q':
+                    break
+                elif choice == 'b':
+                    current_line = 0
+                else:
+                    current_line = end_line
+                    
+    except Exception as e:
+        print(f"❌ Error reading log file: {e}")
 
 
 def print_banner():
@@ -119,6 +162,12 @@ def main():
     )
     
     parser.add_argument(
+        '--view-log',
+        action='store_true',
+        help='View the latest human-readable log file'
+    )
+    
+    parser.add_argument(
         '--interval', '-i',
         type=int,
         default=30,
@@ -145,7 +194,7 @@ def main():
     args = parser.parse_args()
     
     # If no specific command, default to scan
-    if not any([args.scan, args.monitor, args.report, args.status]):
+    if not any([args.scan, args.monitor, args.report, args.status, args.view_log]):
         args.scan = True
     
     if not args.quiet:
@@ -177,6 +226,27 @@ def main():
             if stats['start_time']:
                 uptime = datetime.now() - stats['start_time']
                 print(f"  ⏱️  Uptime: {uptime}")
+        
+        elif args.view_log:
+            # View the latest human-readable log file
+            print("📝 Finding latest log file...")
+            reports_dir = 'auto_debugger/reports'
+            if os.path.exists(reports_dir):
+                log_files = [f for f in os.listdir(reports_dir) if f.startswith('debug_log_') and f.endswith('.txt')]
+                if log_files:
+                    log_files.sort(reverse=True)  # Most recent first
+                    latest_log = os.path.join(reports_dir, log_files[0])
+                    
+                    print(f"📄 Latest log file: {latest_log}")
+                    print("🔍 Use pagination to navigate through the log:")
+                    print("=" * 60)
+                    
+                    # Use pagination for better readability
+                    display_log_with_pagination(latest_log)
+                else:
+                    print("❌ No log files found. Run a scan first with --scan")
+            else:
+                print("❌ Reports directory not found. Run a scan first with --scan")
         
         elif args.report:
             # Generate and show report
@@ -252,6 +322,17 @@ def main():
             report_path = debugger.report_handler.get_latest_report()
             if report_path and os.path.exists(report_path):
                 print(f"📄 Detailed report: {report_path}")
+                
+                # Show readable log file
+                log_path = report_path.replace('.json', '.txt').replace('debug_report_', 'debug_log_')
+                if os.path.exists(log_path):
+                    print(f"📝 Human-readable log: {log_path}")
+                    print(f"💡 Tip: Open the log file to see warnings organized by severity and date")
+                
+                # Show HTML report if available
+                html_path = report_path.replace('.json', '.html')
+                if os.path.exists(html_path):
+                    print(f"🌐 HTML report: {html_path}")
     
     except KeyboardInterrupt:
         print("\n🛑 Operation cancelled by user")
