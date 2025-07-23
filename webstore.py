@@ -37,7 +37,11 @@ def setup_venv_and_dependencies():
     
     # First, ensure virtual environment exists
     venv_path = os.path.join(current_dir, 'venv')
-    venv_python = os.path.join(venv_path, 'bin', 'python')
+    # Use correct path for Windows vs Unix
+    if os.name == 'nt':  # Windows
+        venv_python = os.path.join(venv_path, 'Scripts', 'python.exe')
+    else:  # Unix/Linux/macOS
+        venv_python = os.path.join(venv_path, 'bin', 'python')
     
     if not os.path.exists(venv_path):
         print("Creating virtual environment...")
@@ -52,7 +56,13 @@ def setup_venv_and_dependencies():
     if os.path.exists(venv_python) and sys.executable != venv_python and not os.environ.get('VENV_PYTHON_RUNNING'):
         print("Activating virtual environment...")
         os.environ['VENV_PYTHON_RUNNING'] = '1'
-        os.execv(venv_python, [venv_python] + sys.argv)
+        # Use subprocess instead of os.execv to handle paths with spaces
+        try:
+            subprocess.run([venv_python] + sys.argv, check=True)
+            sys.exit(0)
+        except subprocess.CalledProcessError as e:
+            print(f"Error running with virtual environment: {e}")
+            sys.exit(1)
     
     # Ensure pip is up to date in the virtual environment
     try:

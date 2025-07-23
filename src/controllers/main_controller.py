@@ -63,7 +63,7 @@ class MainController:
      "Checkout", "Save Changes", "Logout"])
             choice = customer_menu.display()
             
-            if choice is None or choice == 10:  # Logout option or 'q' pressed
+            if choice is None or choice == 8:  # Logout option or 'q' pressed
                 break
             elif choice == 0:
                 self.browse_products()
@@ -80,11 +80,6 @@ class MainController:
             elif choice == 6:
                 self.checkout()
             elif choice == 7:
-                self.display_order_summary()
-            elif choice == 8:
-                self.cart_controller.print_receipt()
-                input(self.term.center("Press Enter to continue..."))
-            elif choice == 9:
                 self.save_customer_changes()
 
 
